@@ -1,0 +1,49 @@
+.side-nav {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 70%; /* Adjust the width as needed */
+    height: 100%;
+    background-color: white;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
+    transition: left 0.3s ease;
+    z-index: 1500; /* Ensure the side nav is above other elements */
+    padding-top: 40px; /* Add padding to the top */
+}
+
+.side-nav.open {
+    left: 0;
+}
+
+.side-nav-content {
+    padding: 20px;
+    padding-top: 60px; 
+}
+
+.side-nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.side-nav li {
+    margin-bottom: 20px;
+}
+
+.side-nav li a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #333;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px; 
+    left: 30px; 
+    background: none;
+    border: none;
+    font-size: 30px; 
+    color: #000; 
+    cursor: pointer;
+    z-index: 1500;
+    padding: 0;
+}

@@ -1,0 +1,39 @@
+.scrolling-text-container {
+    width: 100%; /* or set to a specific width, e.g., 1000px */
+    overflow: hidden;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+    position: relative;
+    height: 50px;
+}
+
+.scrolling-text {
+    display: flex;
+    white-space: nowrap;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: 200%; /* Increase the width to ensure scrolling text fits properly */
+    animation: scroll 100s linear infinite;
+}
+
+.scrolling-text p {
+    font-size: 0.8rem;
+    color: #fff;
+    letter-spacing: 9px;
+    text-transform: uppercase;
+    margin: 0 50px;
+    padding-top: 16px;
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(1%); /* Start with the text off-screen to the right */
+    }
+    to {
+        transform: translateX(-100%); /* End with the text off-screen to the left */
+    }
+}

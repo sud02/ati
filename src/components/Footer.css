@@ -1,0 +1,144 @@
+/* Font Face for Logo */
+@font-face {
+    font-family: "GrenobleSerial-Xbold-Medium";
+    src: url("/public/Static/Fonts/Grenoble Serial Medium.ttf") format("truetype");
+}
+
+/* Font Face for Other Text */
+@font-face {
+    font-family: 'YourCustomFont';
+    src: url('/public/Static/Fonts/FontsFree-Net-MB-Empire-W01-Bold.ttf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.footer {
+    background-color: #ffffff;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid #e0e0e0;
+    
+}
+
+.footer-container {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer-left {
+    text-align: left;
+    margin-bottom: 20px; /* Adds space below the logo on smaller screens */
+}
+
+.footer-logo {
+    font-family: "GrenobleSerial-Xbold-Medium", serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.footer-left p {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #777;
+    font-family: "YourCustomFont", Arial, sans-serif;
+}
+
+.footer-right {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    gap: 20px; /* Adds space between sections on smaller screens */
+}
+
+.footer-section {
+    margin-left: 50px;
+}
+
+.footer-section h4 {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #333;
+    font-family: "YourCustomFont", Arial, sans-serif;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    text-decoration: none;
+    font-size: 0.9rem;
+    color: #777;
+    font-family: "YourCustomFont", Arial, sans-serif;
+}
+
+.footer-section ul li a:hover {
+    color: #333;
+}
+
+/* Media Queries for Responsiveness */
+
+/* Small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .footer {
+        padding: 50px 10px 20px; /* Reduced padding */
+    }
+
+    .footer-logo {
+        margin-bottom: 10px; /* Reduced margin below the logo */
+    }
+
+    .footer-section {
+        margin-bottom: 5px; /* Reduced margin between list items */
+    }
+    .footer-right {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%; /* Ensure the right section takes up the full width */
+    }
+
+    .footer-section {
+        width: auto; /* Allow the sections to size based on content */
+        margin-left: 0; /* Remove any margin to align them properly */
+    }
+    
+}
+
+
+
+/* Medium devices (tablets, 768px and down) */
+@media only screen and (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-right {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-section {
+        margin-left: 0;
+        margin-bottom: 20px;
+    }
+
+    .footer-logo {
+        font-size: 2rem;
+    }
+}
