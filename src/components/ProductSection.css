@@ -5,15 +5,14 @@
   font-style: normal;
 }
 
-/* "LATEST DROP" and "DISCOVER MORE" Section */
 .cta-section {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;  
-  background-color: #ffffff;  
- margin: 0px;
- padding-bottom: 15px;
+  padding: 20px;
+  background-color: #ffffff;
+  margin: 0px;
+  padding-bottom: 15px;
 }
 
 .cta-left {
@@ -22,8 +21,6 @@
   color: #353535;
 }
 
-
-/* Product Section */
 .product-section {
   display: flex;
   flex-wrap: wrap;
@@ -33,42 +30,42 @@
 }
 
 .product-card {
-  flex: 1 1 calc(23% - 10px); /* Responsive width with margin consideration */
+  flex: 1 1 calc(23% - 10px);
   margin-bottom: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   position: relative;
-  max-width: calc(25% - 10px); /* Max width ensures cards don't stretch too much */
+  max-width: calc(25% - 10px);
 }
 
 .card-image {
   width: 100%;
-  aspect-ratio: 1/1; /* 1:1 aspect ratio for desktop */
-  overflow: hidden; /* Ensures the image is cropped if necessary */
+  aspect-ratio: 1/1;
+  overflow: hidden;
 }
 
 .card-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Crops the image to fit within the aspect ratio */
+  object-fit: cover;
 }
 
 .card-content {
   text-align: center;
-  overflow: hidden; 
-  height: 70px; /* Fixed height for the card content */
-  box-sizing: border-box; /* Include padding in height calculation */
+  overflow: hidden;
+  height: 70px;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Align content towards the top */
-  padding-top: 0px; /* Move content slightly upward */
+  justify-content: flex-start;
+  padding-top: 0px;
 }
 
 .card-content h3 {
   font-size: 12px;
-  margin-bottom: 0px; /* Slightly decrease the bottom margin */
-  font-family: 'YourCustomFont', sans-serif; /* Use your custom font */
+  margin-bottom: 0px;
+  font-family: 'YourCustomFont', sans-serif;
   margin: 10px;
   color: #353535;
 }
@@ -77,37 +74,36 @@
   font-size: 12px;
   margin: 0.2px;
   color: #707070;
-  font-family: 'YourCustomFont', sans-serif; /* Apply custom font to paragraph */
+  font-family: 'YourCustomFont', sans-serif;
 }
 
-/* Responsive Adjustments */
 @media (max-width: 1024px) {
   .product-card {
-    flex: 1 1 calc(33.33% - 6px); /* Three cards per row with reduced gap */
+    flex: 1 1 calc(33.33% - 6px);
     max-width: calc(33.33% - 6px);
   }
 }
 
 @media (max-width: 768px) {
   .product-card {
-    flex: 1 1 calc(50% - 2px); /* Two cards per row with a reduced gap */
-    max-width: calc(50% - 2px); /* Further reduced gap for mobile view */
-    margin-bottom: 6px; /* Reduce the bottom margin */
+    flex: 1 1 calc(50% - 2px);
+    max-width: calc(50% - 2px);
+    margin-bottom: 6px;
   }
 
   .card-image {
-    aspect-ratio: 1182/1600; /* 1182:1600 aspect ratio for mobile */
+    aspect-ratio: 1182/1600;
   }
 }
 
 @media (max-width: 480px) {
   .product-card {
-    flex: 1 1 calc(50% - 2px); /* Two cards per row for smaller mobile screens */
-    max-width: calc(50% - 2px); /* Ensures two cards per row with further reduced gap */
-    margin-bottom: 6px; /* Further reduce the bottom margin */
+    flex: 1 1 calc(50% - 2px);
+    max-width: calc(50% - 2px);
+    margin-bottom: 6px;
   }
 
   .card-image {
-    aspect-ratio: 1182/1600; /* 1182:1600 aspect ratio for smaller mobile screens */
+    aspect-ratio: 1182/1600;
   }
 }

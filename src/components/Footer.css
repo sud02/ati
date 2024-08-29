@@ -1,15 +1,11 @@
-/* Font Face for Logo */
 @font-face {
     font-family: "GrenobleSerial-Xbold-Medium";
     src: url("/public/Static/Fonts/Grenoble Serial Medium.ttf") format("truetype");
 }
 
-/* Font Face for Other Text */
 @font-face {
     font-family: 'YourCustomFont';
     src: url('/public/Static/Fonts/FontsFree-Net-MB-Empire-W01-Bold.ttf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
 }
 
 .footer {
@@ -19,7 +15,6 @@
     justify-content: center;
     align-items: center;
     border-top: 1px solid #e0e0e0;
-    
 }
 
 .footer-container {
@@ -33,7 +28,7 @@
 
 .footer-left {
     text-align: left;
-    margin-bottom: 20px; /* Adds space below the logo on smaller screens */
+    margin-bottom: 20px;
 }
 
 .footer-logo {
@@ -53,8 +48,8 @@
 .footer-right {
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap; /* Allows wrapping on smaller screens */
-    gap: 20px; /* Adds space between sections on smaller screens */
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .footer-section {
@@ -89,38 +84,32 @@
     color: #333;
 }
 
-/* Media Queries for Responsiveness */
-
-/* Small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
     .footer {
-        padding: 50px 10px 20px; /* Reduced padding */
+        padding: 50px 10px 20px;
     }
 
     .footer-logo {
-        margin-bottom: 10px; /* Reduced margin below the logo */
+        margin-bottom: 10px;
     }
 
     .footer-section {
-        margin-bottom: 5px; /* Reduced margin between list items */
+        margin-bottom: 5px;
     }
+    
     .footer-right {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 100%; /* Ensure the right section takes up the full width */
+        width: 100%;
     }
 
     .footer-section {
-        width: auto; /* Allow the sections to size based on content */
-        margin-left: 0; /* Remove any margin to align them properly */
+        width: auto;
+        margin-left: 0;
     }
-    
 }
 
-
-
-/* Medium devices (tablets, 768px and down) */
 @media only screen and (max-width: 768px) {
     .footer-container {
         flex-direction: column;
