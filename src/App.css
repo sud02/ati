@@ -153,6 +153,7 @@ header.visible .menu-toggle span {
   object-fit: cover;
   object-position: center center;
   z-index: -1;
+  pointer-events: none;
 }
 
 @media (max-width: 768px) {
@@ -165,6 +166,9 @@ header.visible .menu-toggle span {
     height: 100%;
     width: 100%;
     object-fit: cover;
+  }
+  .hero-video::-webkit-media-controls {
+    display: none !important;
   }
 }
 
@@ -181,6 +185,9 @@ header.visible .menu-toggle span {
     height: 100vh;
     object-fit: cover;
     object-position: center center;
+  }
+  .hero-video::-webkit-media-controls {
+    display: none !important;
   }
 }
 
