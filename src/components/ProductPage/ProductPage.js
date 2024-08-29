@@ -1,5 +1,6 @@
 import React from 'react';
-import ProductCarousel from './ProductCarousel';
+import ProductCarousel from './Carousel/ProductCarousel';
+import MobileSlider from './MobileSlider/MobileSlider';
 
 const ProductPage = () => {
   return (
@@ -7,6 +8,7 @@ const ProductPage = () => {
       {/* Other product page content */}
       <ProductCarousel />
       {/* Other product page content */}
+      <MobileSlider/>
     </div>
   );
 };
