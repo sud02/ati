@@ -11,30 +11,7 @@ h1, h2, h3, p {
   font-weight: normal;
 }
 
-/* Header styles before scrolling */
-header.pre-scroll {
-  background-color: rgba(0, 0, 0, 0);
-  visibility: visible;
-  opacity: 1;
-  color: #fff;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-header.pre-scroll .menu-toggle span {
-  background-color: white;
-}
-
-header.visible .menu-toggle span {
-  background-color: black;
-}
-
-header.pre-scroll .header-links ul li a {
-  color: #fff;
-}
-
-header.pre-scroll .header-icons a img {
-  filter: brightness(0) invert(1);
-}
-
+/* Header Styles */
 header {
   display: flex;
   align-items: center;
@@ -43,7 +20,7 @@ header {
   background-color: #fff;
   position: fixed;
   top: 0;
-  height: 70px; 
+  height: 70px;
   width: 100%;
   z-index: 1001;
   opacity: 0;
@@ -51,16 +28,26 @@ header {
   transition: opacity 0.3s ease, visibility 0.3s ease;
   user-select: none;
 }
-
 header.visible {
   opacity: 1;
   visibility: visible;
 }
-
-@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
-  header {
-    transition: opacity 0.5s ease, pointer-events 0.5s ease;
-  }
+header.pre-scroll {
+  background-color: rgba(0, 0, 0, 0);
+  visibility: visible;
+  opacity: 1;
+  color: #fff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+header.pre-scroll .menu-toggle span,
+header.visible .menu-toggle span {
+  background-color: white;
+}
+header.pre-scroll .header-links ul li a {
+  color: #fff;
+}
+header.pre-scroll .header-icons a img {
+  filter: brightness(0) invert(1);
 }
 
 .header-links {
@@ -70,7 +57,6 @@ header.visible {
   justify-content: flex-start;
   padding-left: 40px;
 }
-
 .header-links ul {
   list-style-type: none;
   margin: 0;
@@ -78,7 +64,6 @@ header.visible {
   display: flex;
   gap: 30px;
 }
-
 .header-links ul li a {
   text-decoration: none;
   color: #333;
@@ -98,7 +83,6 @@ header.visible {
   right: 5px;
   z-index: 1000;
 }
-
 .header-icons a img {
   width: 23px;
   height: 23px;
@@ -110,14 +94,12 @@ header.visible {
   cursor: pointer;
   gap: 4px;
 }
-
 .menu-toggle span {
   width: 24px;
   height: 2px;
   background-color: rgba(0, 0, 0, 0.6);
   transition: background-color 0.3s ease;
 }
-
 .menu-toggle:hover span {
   background-color: rgba(0, 0, 0, 0.5);
 }
@@ -127,16 +109,13 @@ header.visible {
   .header-links {
     display: none;
   }
-
   .menu-toggle {
     display: flex;
   }
-
   .hero-section {
     padding-top: 60px;
   }
 }
-
 @media (max-width: 480px) {
   .hero-section {
     padding-top: 55px;
@@ -147,57 +126,45 @@ header.visible {
 .hero-section {
   position: relative;
   width: 100%;
-  height: 70vh; /* Default height for larger screens */
+  height: 70vh;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 80px; 
+  padding-top: 80px;
 }
-
 .video-container {
   width: 100vw;
   height: 100%;
   position: relative;
   overflow: hidden;
 }
-
 .hero-video {
   width: 100vw;
-  height: 100vh; /* Default height for larger screens */
-  object-fit: cover; /* Ensures video covers the container */
+  height: 100vh;
+  object-fit: cover;
 }
 
-/* Mobile View */
 @media (max-width: 768px) {
   .hero-section {
-    height: 90vh; /* Increased height for mobile view */
-    padding-top: 60px; /* Adjust padding if needed */
+    height: 90vh;
+    padding-top: 60px;
   }
-
-  .video-container {
+  .video-container,
+  .hero-video {
     height: 100%;
     width: 100%;
   }
-
-  .hero-video {
-    width: 100%;
-    height: 100%; /* Adjusted to fill the new container height */
-    object-fit: cover;
-  }
 }
 
-/* Desktop View */
 @media (min-width: 769px) {
   .hero-section {
-    height: 80vh; /* Default height for larger screens */
+    height: 80vh;
   }
-
   .video-container {
     height: 100vh;
     width: 100vw;
   }
-
   .hero-video {
     width: 100vw;
     height: 100vh;
@@ -228,20 +195,27 @@ header.visible {
   z-index: 2;
   color: rgba(255, 255, 255, 0.3);
   letter-spacing: 0.5px;
-}
-
-.hero-scroll {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-}
-
-.hero-scroll {
   -webkit-text-stroke: 0.5px transparent;
   text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1);
 }
 
-/* Adjust these values if needed to ensure the text is visible and well-positioned */
+@-webkit-keyframes keyarm {
+  0% { -webkit-transform: rotate(0deg); }
+  5% { -webkit-transform: rotate(-14deg); }
+  10% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(0deg); }
+}
+
+@keyframes keyarm {
+  0% { transform: rotate(0deg); }
+  5% { transform: rotate(-14deg); }
+  10% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
+}
+
 .sticky {
   position: fixed;
   top: 5%;
@@ -252,16 +226,9 @@ header.visible {
   z-index: 1001;
   transition: top 0.7s ease, font-size 0.7s ease, color 0.7s ease;
   user-select: none;
+  -webkit-animation: keyarm 1.5s ease-in-out infinite;
+  animation: keyarm 1.5s ease-in-out infinite;
 }
-@media screen and (-webkit-min-device-pixel-ratio:5) {
-  .sticky {
-      /* Safari-specific styles */
-      transition: top 0.5s ease, color 0.5s ease;
-      will-change: top, color;
-  }
-}
-
-
 
 /* Font Face */
 @font-face {
@@ -273,11 +240,17 @@ h1 {
   font-family: "GrenobleSerial-Xbold-Medium";
 }
 
+@media screen and (-webkit-min-device-pixel-ratio:5) {
+  .sticky {
+    transition: top 0.5s ease, color 0.5s ease;
+    will-change: top, color;
+  }
+}
+
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   .hero-scroll {
     animation: repaint 0.1s;
   }
-
   @keyframes repaint {
     0% { opacity: 1; }
     100% { opacity: 1; }
