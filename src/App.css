@@ -49,6 +49,9 @@ header.pre-scroll .header-links ul li a {
 header.pre-scroll .header-icons a img {
   filter: brightness(0) invert(1);
 }
+header.visible .menu-toggle span {
+  background-color: black; 
+}
 
 .header-links {
   display: flex;
@@ -126,40 +129,48 @@ header.pre-scroll .header-icons a img {
 .hero-section {
   position: relative;
   width: 100%;
-  height: 70vh;
+  height: 100vh;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 80px;
 }
+
+/* Video Container */
 .video-container {
-  width: 100vw;
-  height: 100%;
-  position: relative;
-  overflow: hidden;
-}
-.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
+  z-index: 0;
+}
+
+/* Hero Video */
+.hero-video {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  object-position: center center;
+  z-index: -1;
 }
 
 @media (max-width: 768px) {
   .hero-section {
-    height: 90vh;
-    padding-top: 60px;
+    height: 100vh;
+    padding-top: 40px;
   }
   .video-container,
   .hero-video {
     height: 100%;
     width: 100%;
+    object-fit: cover;
   }
 }
 
 @media (min-width: 769px) {
   .hero-section {
-    height: 80vh;
+    height: 100vh;
   }
   .video-container {
     height: 100vh;
@@ -169,6 +180,7 @@ header.pre-scroll .header-icons a img {
     width: 100vw;
     height: 100vh;
     object-fit: cover;
+    object-position: center center;
   }
 }
 
@@ -254,5 +266,13 @@ h1 {
   @keyframes repaint {
     0% { opacity: 1; }
     100% { opacity: 1; }
+  }
+}
+
+/* Adjustments for iPhone 14 Pro Max */
+@media screen and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) {
+  .hero-section {
+    padding-top: 50px;
+    height: 85vh;
   }
 }
