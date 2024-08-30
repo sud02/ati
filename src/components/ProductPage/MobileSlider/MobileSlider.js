@@ -20,7 +20,7 @@ const MobileSlider = () => {
 
     const updateActiveIndicator = () => {
       const scrollPosition = slider.scrollLeft;
-      const sliderWidth = slider.clientWidth;
+      // const sliderWidth = slider.clientWidth;
       const imageWidth = images[0].clientWidth;
       const currentIndex = Math.round(scrollPosition / imageWidth);
 

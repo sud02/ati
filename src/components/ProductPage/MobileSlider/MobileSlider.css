@@ -1,23 +1,24 @@
 @media (max-width: 767px) {
-  .mobile-slider {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    max-width: 430px;
-    margin: 0 auto;
-    position: relative;
-  }
+    .mobile-slider {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      max-width: 430px;
+      
+      margin: 0 auto;
+      position: relative;
+    }
 
-  .mobile-slider img {
-    scroll-snap-align: start;
-    flex: 0 0 auto;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 4/5; /* Maintain 4:5 aspect ratio */
-    object-fit: cover; /* Cover to ensure the image fills the container */
-    border: none;
-    margin-right: 12px; /* Add a bit of padding to the right */
-  }
+    .mobile-slider img {
+      scroll-snap-align: start;
+      flex: 0 0 auto;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4/5; /* Maintain 4:5 aspect ratio */
+      object-fit: cover; /* Cover to ensure the image fills the container */
+      border: none;
+      margin-right: 12px; /* Add a bit of padding to the right */
+    }
 
   .bar-container {
     display: flex;

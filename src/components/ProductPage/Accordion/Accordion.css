@@ -1,0 +1,35 @@
+.btn-linkk {
+    text-decoration: none !important;
+    width: 100% !important;
+    text-align: left !important;
+    color: #333 !important;
+}
+
+.toggle-icon {
+    font-size: 1.25rem;
+}
+
+.card-header {
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+.card {
+    border-color: transparent !important;
+}
+
+.card-header:hover {
+    background-color: #ffffff;
+}
+
+.card-body {
+    padding: 1rem;
+}
+
+.collapse.show .toggle-icon {
+    content: "-";
+}
+
+.collapse:not(.show) .toggle-icon {
+    content: "+";
+}
