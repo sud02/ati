@@ -3,13 +3,13 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import Header from './components/Header';
+import Header from './components/Header/Header';
 import SideNav from './components/SideNav';
 import HeroSection from './components/HeroSection';
 import ProductSection from './components/ProductSection';
-import ProductPage from './components/ProductPage';
-import ScrollingText from './components/ScrollingText';  // Import the ScrollingText component
-import Footer from './components/Footer';
+import ProductPage from './components/ProductPage/ProductPage';
+import ScrollingText from './components/Footer/ScrollingText';
+import Footer from './components/Footer/Footer';
 
 function App() {
     const [isSideNavOpen, setSideNavOpen] = useState(false);
@@ -64,17 +64,19 @@ function App() {
 
     return (
         <div className="App">
-            <Header toggleSideNav={toggleSideNav} ref={headerRef} />
+            {location.pathname === '/' && (
+                <Header toggleSideNav={toggleSideNav} ref={headerRef} />
+            )}
             <SideNav isOpen={isSideNavOpen} closeSideNav={closeSideNav} />
             <Routes>
                 <Route path="/" element={
                     <>
                         <HeroSection ref={heroTextRef} />
                         <ProductSection />
-                        <ScrollingText /> {/* Add the ScrollingText component here */}
+                        <ScrollingText />
                     </>
                 } />
-                <Route path="/product" element={<ProductPage />} />
+                <Route path="/product/:id" element={<ProductPage />} />
             </Routes>
             <Footer />
         </div>
