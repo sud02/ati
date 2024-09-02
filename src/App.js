@@ -1,3 +1,4 @@
+// src/App.js
 import React, { useState, useEffect, useRef } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import './App.css';
@@ -8,77 +9,87 @@ import SideNav from './components/SideNav';
 import HeroSection from './components/HeroSection';
 import ProductSection from './components/ProductSection';
 import ProductPage from './components/ProductPage/ProductPage';
+<<<<<<< Updated upstream
 import ScrollingText from './components/Footer/ScrollingText';  // Import the ScrollingText component
 import Footer from './components/Footer/Footer';
+=======
+import ScrollingText from './components/Footer/ScrollingText'; // Ensure this path is correct
+import Footer from './components/Footer/Footer'; // Ensure this path is correct
+import Cart from './components/Cart'; // Import the Cart component
+import { ShopProvider } from './context/ShopContext';
+>>>>>>> Stashed changes
 
 function App() {
-    const [isSideNavOpen, setSideNavOpen] = useState(false);
-    const headerRef = useRef(null);
-    const heroTextRef = useRef(null);
-    const location = useLocation();
+  const [isSideNavOpen, setSideNavOpen] = useState(false);
+  const headerRef = useRef(null);
+  const heroTextRef = useRef(null);
+  const location = useLocation();
 
-    const toggleSideNav = () => {
-        setSideNavOpen(prevState => !prevState);
-    };
+  const toggleSideNav = () => {
+    setSideNavOpen(prevState => !prevState);
+  };
 
-    const closeSideNav = () => {
-        setSideNavOpen(false);
-    };
+  const closeSideNav = () => {
+    setSideNavOpen(false);
+  };
 
-    const handleScroll = () => {
-        const header = headerRef.current;
-        const heroText = heroTextRef.current;
-        const threshold = header ? header.offsetHeight : 0;
-    
-        if (header) {
-            if (window.scrollY > threshold) {
-                header.classList.add('visible');
-                header.classList.remove('pre-scroll');
-            } else {
-                header.classList.remove('visible');
-                header.classList.add('pre-scroll');
-            }
-        }
-    
-        if (heroText) {
-            if (window.scrollY >= threshold) {
-                heroText.classList.add('sticky');
-            } else {
-                heroText.classList.remove('sticky');
-            }
-        }
-    };
-    
-    useEffect(() => {
-        headerRef.current.classList.add('pre-scroll');
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
-    
-    useEffect(() => {
-        if (location.pathname === '/') {
-            window.scrollTo(0, 0);
-            handleScroll(); 
-        }
-    }, [location.pathname]);
+  const handleScroll = () => {
+    const header = headerRef.current;
+    const heroText = heroTextRef.current;
+    const threshold = header ? header.offsetHeight : 0;
 
-    return (
-        <div className="App">
-            <Header toggleSideNav={toggleSideNav} ref={headerRef} />
-            <SideNav isOpen={isSideNavOpen} closeSideNav={closeSideNav} />
-            <Routes>
-                <Route path="/" element={
-                    <>
-                        <HeroSection ref={heroTextRef} />
-                        <ProductSection />
-                        <ScrollingText /> {/* Add the ScrollingText component here */}
-                    </>
-                } />
-                <Route path="/product" element={<ProductPage />} />
-            </Routes>
-            <Footer />
-        </div>
-    );
+    if (header) {
+      if (window.scrollY > threshold) {
+        header.classList.add('visible');
+        header.classList.remove('pre-scroll');
+      } else {
+        header.classList.remove('visible');
+        header.classList.add('pre-scroll');
+      }
+    }
+
+    if (heroText) {
+      if (window.scrollY >= threshold) {
+        heroText.classList.add('sticky');
+      } else {
+        heroText.classList.remove('sticky');
+      }
+    }
+  };
+
+  useEffect(() => {
+    headerRef.current.classList.add('pre-scroll');
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    if (location.pathname === '/') {
+      window.scrollTo(0, 0);
+      handleScroll();
+    }
+  }, [location.pathname]);
+
+  return (
+    <ShopProvider>
+      <div className="App">
+        <Header toggleSideNav={toggleSideNav} ref={headerRef} />
+        <SideNav isOpen={isSideNavOpen} closeSideNav={closeSideNav} />
+        <Routes>
+          <Route path="/" element={
+            <>
+              <HeroSection ref={heroTextRef} />
+              <ProductSection />
+              <ScrollingText />
+            </>
+          } />
+          <Route path="/product/:id" element={<ProductPage />} />
+          <Route path="/cart" element={<Cart />} /> {/* Add route for Cart */}
+        </Routes>
+        <Footer />
+      </div>
+    </ShopProvider>
+  );
 }
 
 export default App;

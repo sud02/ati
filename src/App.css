@@ -1,3 +1,5 @@
+
+
 /* General Styles */
 body {
   margin: 0;
@@ -11,7 +13,6 @@ h1, h2, h3, p {
   font-weight: normal;
 }
 
-/* Header Styles */
 header {
   display: flex;
   align-items: center;
@@ -28,6 +29,7 @@ header {
   transition: opacity 0.3s ease, visibility 0.3s ease;
   user-select: none;
 }
+
 header.visible {
   opacity: 1;
   visibility: visible;

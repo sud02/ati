@@ -1,5 +1,11 @@
+// src/components/Header/Header.js
 import React, { forwardRef } from 'react';
 import { Link } from 'react-router-dom';
+<<<<<<< Updated upstream
+import SearchBar from './Header/SearchBar'; // Import the SearchBar component
+=======
+import SearchBar from './SearchBar'; // Import the SearchBar component
+>>>>>>> Stashed changes
 
 const Header = forwardRef(({ toggleSideNav }, ref) => {
     return (
@@ -17,7 +23,7 @@ const Header = forwardRef(({ toggleSideNav }, ref) => {
                 </ul>
             </div>
             <div className="header-icons">
-                <Link to="/search"><img src="/Static/Symbols/magnifying-glass.png" alt="Search" /></Link>
+                <SearchBar /> {/* Replace the search icon link with the SearchBar component */}
                 <Link to="/cart"><img src="/Static/Symbols/shopping-bag.png" alt="Cart" /></Link>
             </div>
         </header>
