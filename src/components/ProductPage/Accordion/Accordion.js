@@ -1,111 +1,122 @@
 import React, { useState } from 'react';
 import './Accordion.css';
 
-const Accordion = () => {
+const Accordion = ({ product }) => {
   const [openSection, setOpenSection] = useState(null);
 
   const handleToggle = (section) => {
     setOpenSection((prev) => (prev === section ? null : section));
   };
 
+  const getSectionsForProduct = (product) => {
+    switch (product.id) {
+      case 1: // FIRE T-SHIRT
+        return [
+          {
+            title: 'Product Details',
+            content: ['Detail about FIRE T-SHIRT 1', 'Detail about FIRE T-SHIRT 2']
+          },
+          {
+            title: 'Description',
+            content: 'This is a description of the FIRE T-SHIRT.'
+          },
+          {
+            title: 'Return and Exchange Policy',
+            content: ['Policy for FIRE T-SHIRT 1', 'Policy for FIRE T-SHIRT 2']
+          }
+        ];
+      case 2: // FLORAL T-SHIRT
+        return [
+          {
+            title: 'Product Details',
+            content: ['Detail about FLORAL T-SHIRT 1', 'Detail about FLORAL T-SHIRT 2']
+          },
+          {
+            title: 'Description',
+            content: 'This is a description of the FLORAL T-SHIRT.'
+          },
+          {
+            title: 'Return and Exchange Policy',
+            content: ['Policy for FLORAL T-SHIRT 1', 'Policy for FLORAL T-SHIRT 2']
+          }
+        ];
+      case 3: // LITM T-SHIRT
+        return [
+          {
+            title: 'Product Details',
+            content: ['Detail about LITM T-SHIRT 1', 'Detail about LITM T-SHIRT 2']
+          },
+          {
+            title: 'Description',
+            content: 'This is a description of the LITM T-SHIRT.'
+          },
+          {
+            title: 'Return and Exchange Policy',
+            content: ['Policy for LITM T-SHIRT 1', 'Policy for LITM T-SHIRT 2']
+          }
+        ];
+      case 4: // PIGEON T-SHIRT
+        return [
+          {
+            title: 'Product Details',
+            content: ['Detail about PIGEON T-SHIRT 1', 'Detail about PIGEON T-SHIRT 2']
+          },
+          {
+            title: 'Description',
+            content: 'This is a description of the PIGEON T-SHIRT.'
+          },
+          {
+            title: 'Return and Exchange Policy',
+            content: ['Policy for PIGEON T-SHIRT 1', 'Policy for PIGEON T-SHIRT 2']
+          }
+        ];
+      default:
+        return [];
+    }
+  };
+
+  const sections = getSectionsForProduct(product);
+
   return (
     <div className="container mt-2">
       <div className="row">
-        <div className="col-lg-4 col-12">
-          <div className="card">
-            <div className="card-header" id="headingOne">
-              <h5 className="mb-0">
-                <button
-                  className="btn btn-link btn-linkk d-flex justify-content-between align-items-center"
-                  onClick={() => handleToggle('collapseOne')}
-                >
-                  Product Details
-                  <span className="toggle-icon">
-                    {openSection === 'collapseOne' ? '-' : '+'}
-                  </span>
-                </button>
-              </h5>
-            </div>
+        {sections.map((section, index) => (
+          <div key={index} className="col-lg-4 col-12">
+            <div className="card">
+              <div className="card-header" id={`heading${index}`}>
+                <h5 className="mb-0">
+                  <button
+                    className="btn btn-link btn-linkk d-flex justify-content-between align-items-center"
+                    onClick={() => handleToggle(`collapse${index}`)}
+                  >
+                    {section.title}
+                    <span className="toggle-icon">
+                      {openSection === `collapse${index}` ? '-' : '+'}
+                    </span>
+                  </button>
+                </h5>
+              </div>
 
-            <div
-              id="collapseOne"
-              className={`collapse ${openSection === 'collapseOne' ? 'show' : ''}`}
-              aria-labelledby="headingOne"
-            >
-              <div className="card-body">
-                <ul className="list-styled">
-                  <li>Detail 1</li>
-                  <li>Detail 2</li>
-                  <li>Detail 3</li>
-                </ul>
+              <div
+                id={`collapse${index}`}
+                className={`collapse ${openSection === `collapse${index}` ? 'show' : ''}`}
+                aria-labelledby={`heading${index}`}
+              >
+                <div className="card-body">
+                  {Array.isArray(section.content) ? (
+                    <ul className="list-styled">
+                      {section.content.map((item, itemIndex) => (
+                        <li key={itemIndex}>{item}</li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p>{section.content}</p>
+                  )}
+                </div>
               </div>
             </div>
           </div>
-        </div>
-
-        <div className="col-lg-4 col-12">
-          <div className="card">
-            <div className="card-header" id="headingTwo">
-              <h5 className="mb-0">
-                <button
-                  className="btn btn-link btn-linkk d-flex justify-content-between align-items-center"
-                  onClick={() => handleToggle('collapseTwo')}
-                >
-                  Description
-                  <span className="toggle-icon">
-                    {openSection === 'collapseTwo' ? '-' : '+'}
-                  </span>
-                </button>
-              </h5>
-            </div>
-
-            <div
-              id="collapseTwo"
-              className={`collapse ${openSection === 'collapseTwo' ? 'show' : ''}`}
-              aria-labelledby="headingTwo"
-            >
-              <div className="card-body">
-                <ul className="list-styled">
-                  <li>Description 1</li>
-                  <li>Description 2</li>
-                  <li>Description 3</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-lg-4 col-12">
-          <div className="card">
-            <div className="card-header" id="headingThree">
-              <h5 className="mb-0">
-                <button
-                  className="btn btn-link btn-linkk d-flex justify-content-between align-items-center"
-                  onClick={() => handleToggle('collapseThree')}
-                >
-                  Return and Exchange Policy
-                  <span className="toggle-icon">
-                    {openSection === 'collapseThree' ? '-' : '+'}
-                  </span>
-                </button>
-              </h5>
-            </div>
-
-            <div
-              id="collapseThree"
-              className={`collapse ${openSection === 'collapseThree' ? 'show' : ''}`}
-              aria-labelledby="headingThree"
-            >
-              <div className="card-body">
-                <ul className="list-styled">
-                  <li>Policy 1</li>
-                  <li>Policy 2</li>
-                  <li>Policy 3</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   );

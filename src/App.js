@@ -74,7 +74,8 @@ function App() {
                         <ScrollingText /> {/* Add the ScrollingText component here */}
                     </>
                 } />
-                <Route path="/product" element={<ProductPage />} />
+                <Route path="/product/:id" element={<ProductPage />} />
+
             </Routes>
             <Footer />
         </div>

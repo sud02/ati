@@ -1,25 +1,33 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './ProductSection.css';
 
 const ProductSection = () => {
+  const navigate = useNavigate();
   const products = [
-    { img: '/Static/ProductImgs/FIRE.jpg', alt: 'Cool School Shirt', name: 'FIRE T-SHIRT', price: 'RS. 5,995' },
-    { img: '/Static/ProductImgs/FLORAL.jpg', alt: 'Crystal T Blue T-Shirt', name: 'FLORAL T-SHIRT', price: 'RS. 5,995' },
-    { img: '/Static/ProductImgs/LIVE.jpg', alt: 'Crystal Black T-Shirt', name: 'LITM T-SHIRT', price: 'RS. 5,995' },
-    { img: '/Static/ProductImgs/PIGEON.jpg', alt: 'Black White Polo T-Shirt', name: 'PIGEON T-SHIRT', price: 'RS. 4,495' },
+    { img: '/Static/ProductImgs/FIRE.jpg', alt: 'Cool School Shirt', name: 'FIRE T-SHIRT', price: 'RS. 5,995', id: 1 },
+    { img: '/Static/ProductImgs/FLORAL.jpg', alt: 'Crystal T Blue T-Shirt', name: 'FLORAL T-SHIRT', price: 'RS. 5,995', id: 2 },
+    { img: '/Static/ProductImgs/LIVE.jpg', alt: 'Crystal Black T-Shirt', name: 'LITM T-SHIRT', price: 'RS. 5,995', id: 3 },
+    { img: '/Static/ProductImgs/PIGEON.jpg', alt: 'Black White Polo T-Shirt', name: 'PIGEON T-SHIRT', price: 'RS. 4,495', id: 4 },
   ];
+
+  const handleClick = (productId) => {
+    navigate(`/product/${productId}`);
+  };
 
   return (
     <div>
-      {/* "LATEST DROP" and "DISCOVER MORE" Section */}
       <div className="cta-section">
         <div className="cta-left">RECENT DROP</div>
       </div>
 
-      {/* Products Section */}
       <div className="product-section">
-        {products.map((product, index) => (
-          <div className="product-card" key={index}>
+        {products.map((product) => (
+          <div
+            className="product-card"
+            key={product.id}
+            onClick={() => handleClick(product.id)}
+          >
             <div className="card-image">
               <img src={product.img} alt={product.alt} />
             </div>
