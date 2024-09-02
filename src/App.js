@@ -8,7 +8,7 @@ import SideNav from './components/SideNav';
 import HeroSection from './components/HeroSection';
 import ProductSection from './components/ProductSection';
 import ProductPage from './components/ProductPage/ProductPage';
-import ScrollingText from './components/Footer/ScrollingText';  // Import the ScrollingText component
+import ScrollingText from './components/Footer/ScrollingText';
 import Footer from './components/Footer/Footer';
 
 function App() {
@@ -64,18 +64,19 @@ function App() {
 
     return (
         <div className="App">
-            <Header toggleSideNav={toggleSideNav} ref={headerRef} />
+            {location.pathname === '/' && (
+                <Header toggleSideNav={toggleSideNav} ref={headerRef} />
+            )}
             <SideNav isOpen={isSideNavOpen} closeSideNav={closeSideNav} />
             <Routes>
                 <Route path="/" element={
                     <>
                         <HeroSection ref={heroTextRef} />
                         <ProductSection />
-                        <ScrollingText /> {/* Add the ScrollingText component here */}
+                        <ScrollingText />
                     </>
                 } />
                 <Route path="/product/:id" element={<ProductPage />} />
-
             </Routes>
             <Footer />
         </div>
