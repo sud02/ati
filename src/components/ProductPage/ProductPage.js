@@ -1,27 +1,10 @@
-<<<<<<< Updated upstream
-import React from 'react';
-=======
 import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom';
->>>>>>> Stashed changes
 import ProductCarousel from './Carousel/ProductCarousel';
 import MobileSlider from './MobileSlider/MobileSlider';
 import ProductDetails from './ProductDetails/ProductDetails';
 import ButtonGroup from './ButtonGroup/ButtonGroup';
 import Accordion from './Accordion/Accordion';
-<<<<<<< Updated upstream
-const ProductPage = () => {
-  return (
-    <div className="product-page">
-      {/* Other product page content */}
-      <ProductCarousel /> 
-      {/* Other product page content */}
-      <MobileSlider/>
-
-      <ProductDetails/>
-      <ButtonGroup/>
-      <Accordion/>
-=======
 import { ShopContext } from '../../context/ShopContext';
 
 const ProductPage = () => {
@@ -46,13 +29,8 @@ const ProductPage = () => {
       <ProductDetails product={product} />
       <ButtonGroup product={product} />
       <Accordion product={product} />
->>>>>>> Stashed changes
     </div>
   );
 };
 
-<<<<<<< Updated upstream
 export default ProductPage;
-=======
-export default ProductPage;
->>>>>>> Stashed changes
