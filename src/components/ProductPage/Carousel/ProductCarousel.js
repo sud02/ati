@@ -3,6 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './ProductCarousel.css';
 
+
+
 const ProductCarousel = () => {
   useEffect(() => {
     if (window.bootstrap) {
@@ -25,6 +27,7 @@ const ProductCarousel = () => {
   }, []);
 
   return (
+  
     <div id="demo" className="carousel slide product-carousel d-none d-md-block" data-bs-ride="carousel">
       {/* Indicators/dots */}
       <div className="carousel-indicators">
@@ -58,7 +61,10 @@ const ProductCarousel = () => {
         <span className="carousel-control-next-icon"></span>
       </button>
     </div>
+   
+    
   );
+   
 };
 
 export default ProductCarousel;

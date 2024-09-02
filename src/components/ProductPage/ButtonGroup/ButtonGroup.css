@@ -1,0 +1,97 @@
+.btn-sz {
+    margin: 0.2rem 0.1rem !important; /* Minimal margins for tight fit */
+    height: 40px; /* Set height to match the reference */
+    flex: 1 1 auto; /* Allow button to grow and shrink as needed */
+    max-width: 80px; /* Maximum width to control button size */
+    border-radius: 0.2rem !important; /* Rounded corners */
+    font-size: 14px; /* Set font size for button text */
+  }
+  
+  .btn-customm {
+    margin: 0.55rem 0.1rem !important; /* Minimal margins for tight fit */
+    height: 30px; /* Set height to match the reference */
+    flex: 1 1 auto; /* Allow button to grow and shrink as needed */
+    max-width: 100px; /* Maximum width to control button size */
+    border-radius: 0.2rem !important; /* Rounded corners */
+    font-size: 14px; /* Set font size for button text */
+    color: black;
+    padding-top: 3px;
+  }
+  
+  .btn-ft {
+    font-size: 16px; /* Larger font size for emphasis */
+    font-weight: bold; /* Bold text for emphasis */
+    padding-top: 0.8rem; /* Vertical padding for button height */
+    padding-bottom: 0.8rem; /* Vertical padding for button height */
+    border-radius: 0.2rem !important; /* Rounded corners */
+  }
+  
+  .btn-light {
+    border-color: rgb(205, 205, 205);
+    color: rgb(205, 205, 205);
+  }
+  
+  .btn-group {
+    justify-content: space-between; /* Space out buttons evenly */
+    gap: 0.1rem; /* Small gap between buttons */
+    flex-wrap: wrap; /* Allow buttons to wrap if necessary */
+  }
+  
+  .btn-link {
+    text-underline-offset: 4px !important;
+  }
+  
+  .btn-link:hover {
+    color: rgb(90, 87, 87);
+  }
+  
+  @media (max-width: 431px) {
+    .btn-group {
+      gap: 0.05rem; /* Minimize gap for tighter fit */
+    }
+  
+    .btn-customm {
+      margin-top: 0.4rem !important;
+      padding-left: 0;
+      padding-right: 0;
+      padding-bottom: 3px;
+    }
+  
+    .btn-sz {
+      margin: 0.1rem !important; /* Further reduced margins for tighter alignment */
+    }
+  
+    .btn-ft {
+      padding-top: 0.6rem; /* Reduced padding for mobile screens */
+      padding-bottom: 0.6rem; /* Reduced padding for mobile screens */
+    }
+  }
+  
+  .mw {
+    max-width: 450px;
+  }
+  
+  .btn-custom-lg {
+    padding: .75rem .75rem; /* Sets padding inside the button to 0.75rem on all sides */
+    font-size: 1rem; /* Sets the font size inside the button to 1rem */
+  }
+  
+  @media (min-width: 768px) {
+    .btn-custom-lg {
+      padding: 1rem 1rem; /* Increases the padding to 1rem on all sides */
+      width: 250px !important; /* Sets the button width to 250px, overriding any other width styles */
+      font-size: 1rem; /* Keeps the font size at 1rem */
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .cont {
+      padding-left: 10px; /* Adds 10px padding on the left side of elements with the .cont class */
+      padding-right: 10px; /* Adds 10px padding on the right side of elements with the .cont class */
+    }
+  }
+  
+  .modal-dialog {
+    top: 200px;
+  }
+  
