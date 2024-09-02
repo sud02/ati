@@ -38,7 +38,8 @@ const MobileSlider = ({ images }) => {
     <>
       <div className="mobile-slider d-md-none" id="mobileSlider">
         {images.map((img, index) => (
-          <img key={index} src={img} alt={`Product image ${index + 1}`} className="d-block" />
+          <img src={img} alt={`Product ${index + 1}`} className="d-block" />
+
         ))}
       </div>
       <div className="bar-container d-md-none" id="barContainer"></div>
