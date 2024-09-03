@@ -1,4 +1,5 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 import ProductCarousel from './Carousel/ProductCarousel';
 import MobileSlider from './MobileSlider/MobileSlider';
 import ProductDetails from './ProductDetails/ProductDetails';
@@ -32,7 +33,8 @@ const handleAddToCart = () => {
 };
 
 const ProductPage = () => {
-  const product = products[0]; // Select the first product for demonstration
+  const { id } = useParams(); // Get the product ID from the URL
+  const product = products.find((p) => p.id === parseInt(id)); // Find the product by ID
 
   if (!product) return <div>Product not found</div>;
 
