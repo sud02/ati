@@ -50,9 +50,16 @@ function App() {
     };
     
     useEffect(() => {
-        headerRef.current.classList.add('pre-scroll');
+        // Initialize classes and event listeners
+        if (headerRef.current) {
+            headerRef.current.classList.add('pre-scroll');
+        }
         window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+        
+        return () => {
+            // Clean up event listener
+            window.removeEventListener('scroll', handleScroll);
+        };
     }, []);
     
     useEffect(() => {
