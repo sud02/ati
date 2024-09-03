@@ -1,16 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './ButtonGroup.css';
 
 const ButtonGroup = ({ sizes, sizeChart, onBuyNow, onAddToCart }) => {
+  // State to track the active size
+  const [activeSize, setActiveSize] = useState(null);
+
+  // Handle size button click
+  const handleSizeClick = (size) => {
+    setActiveSize(size);
+  };
+
   return (
     <>
       {/* Button group */}
       <div className="cont">
         <div className="btn-group d-flex justify-content-center mb-2 mt-3">
           {sizes.map(size => (
-            <button key={size} type="button" className="btn btn-outline-dark btn-sz btn-light">{size}</button>
+            <button
+              key={size}
+              type="button"
+              className={`btn btn-outline-dark btn-sz btn-light ${activeSize === size ? 'active' : ''}`}
+              onClick={() => handleSizeClick(size)}
+            >
+              {size}
+            </button>
           ))}
-          <button type="button" className="btn btn-link btn-customm" data-bs-toggle="modal" data-bs-target="#sizeChartModal">
+          <button
+            type="button"
+            className="btn btn-link btn-customm"
+            data-bs-toggle="modal"
+            data-bs-target="#sizeChartModal"
+          >
             SIZE CHART
           </button>
         </div>
