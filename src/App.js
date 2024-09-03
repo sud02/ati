@@ -29,7 +29,7 @@ function App() {
         const header = headerRef.current;
         const heroText = heroTextRef.current;
         const threshold = header ? header.offsetHeight : 0;
-    
+
         if (header) {
             if (window.scrollY > threshold) {
                 header.classList.add('visible');
@@ -39,7 +39,7 @@ function App() {
                 header.classList.add('pre-scroll');
             }
         }
-    
+
         if (heroText) {
             if (window.scrollY >= threshold) {
                 heroText.classList.add('sticky');
@@ -48,25 +48,23 @@ function App() {
             }
         }
     };
-    
+
     useEffect(() => {
         // Initialize classes and event listeners
         if (headerRef.current) {
             headerRef.current.classList.add('pre-scroll');
         }
         window.addEventListener('scroll', handleScroll);
-        
+
         return () => {
             // Clean up event listener
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
-    
+
     useEffect(() => {
-        if (location.pathname === '/') {
-            window.scrollTo(0, 0);
-            handleScroll(); 
-        }
+        // Scroll to top instantly on route change
+        window.scrollTo(0, 0);
     }, [location.pathname]);
 
     return (
