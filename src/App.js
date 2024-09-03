@@ -10,6 +10,8 @@ import ProductSection from './components/ProductSection';
 import ProductPage from './components/ProductPage/ProductPage';
 import ScrollingText from './components/Footer/ScrollingText';
 import Footer from './components/Footer/Footer';
+import LoginForm from './components/Login/LoginForm';
+import SignupForm from './components/Login/SignupForm';
 
 function App() {
     const [isSideNavOpen, setSideNavOpen] = useState(false);
@@ -50,14 +52,12 @@ function App() {
     };
     
     useEffect(() => {
-        // Initialize classes and event listeners
         if (headerRef.current) {
             headerRef.current.classList.add('pre-scroll');
         }
         window.addEventListener('scroll', handleScroll);
         
         return () => {
-            // Clean up event listener
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
@@ -68,6 +68,8 @@ function App() {
             handleScroll(); 
         }
     }, [location.pathname]);
+
+    const shouldShowFooter = location.pathname !== '/login' && location.pathname !== '/signup';
 
     return (
         <div className="App">
@@ -84,8 +86,10 @@ function App() {
                     </>
                 } />
                 <Route path="/product/:id" element={<ProductPage />} />
+                <Route path="/login" element={<LoginForm />} />
+                <Route path="/signup" element={<SignupForm />} />
             </Routes>
-            <Footer />
+            {shouldShowFooter && <Footer />}
         </div>
     );
 }
