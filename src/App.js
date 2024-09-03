@@ -12,6 +12,7 @@ import ScrollingText from './components/Footer/ScrollingText';
 import Footer from './components/Footer/Footer';
 import LoginForm from './components/Login/LoginForm';
 import SignupForm from './components/Login/SignupForm';
+import Cart from './components/Cart/Cart';
 
 function App() {
     const [isSideNavOpen, setSideNavOpen] = useState(false);
@@ -84,6 +85,7 @@ function App() {
                     </>
                 } />
                 <Route path="/product/:id" element={<ProductPage />} />
+                <Route path="/cart" element={<Cart />} /> {/* Add this line */}
                 <Route path="/login" element={<LoginForm />} />
                 <Route path="/signup" element={<SignupForm />} />
             </Routes>
