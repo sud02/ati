@@ -95,3 +95,39 @@
     top: 200px;
   }
   
+
+  /* Add the clicked effect */
+.btn-clicked {
+  animation: clickEffect 0.3s ease-in-out;
+}
+
+@keyframes clickEffect {
+  0% {
+    transform: scale(1);
+     /*background-color: #2a2a2a; /* Dark background on click */
+    color: white; /* Light text color on click */
+  }
+  50% {
+    transform: scale(0.93); /* Slightly shrink the button */
+  }
+  100% {
+    transform: scale(1);
+     /*background-color: transparent; /* Revert background */
+    color: black; /* Revert text color */
+  }
+}
+
+
+.btn-d,.btn-d:hover{
+  background-color: black !important; /* Keep original background */
+  color: white !important; /* Keep original text color */
+  border-color: black !important; /* Keep original border color */
+
+
+}
+
+.btn-od,.btn-od:hover{
+  background-color: white;
+  color: black;
+  border-color: black;
+}
