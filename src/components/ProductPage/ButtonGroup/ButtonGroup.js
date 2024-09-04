@@ -1,18 +1,30 @@
 import React, { useState } from 'react';
 import './ButtonGroup.css';
 
-const ButtonGroup = ({ sizes, sizeChart, onBuyNow, onAddToCart }) => {
-  // State to track the active size
+const ButtonGroup = ({ sizes = [], sizeChart = [], onBuyNow, onAddToCart }) => {
   const [activeSize, setActiveSize] = useState(null);
+  const [clickedButton, setClickedButton] = useState(null);
 
-  // Handle size button click
   const handleSizeClick = (size) => {
     setActiveSize(size);
   };
 
+  const handleButtonClick = (buttonType) => {
+    setClickedButton(buttonType);
+
+    setTimeout(() => {
+      setClickedButton(null);
+    }, 300); // Duration of the click animation
+
+    if (buttonType === 'buyNow') {
+      onBuyNow();
+    } else if (buttonType === 'addToCart') {
+      onAddToCart(activeSize);
+    }
+  };
+
   return (
     <>
-      {/* Button group */}
       <div className="cont">
         <div className="btn-group d-flex justify-content-center mb-2 mt-3">
           {sizes.map(size => (
@@ -36,7 +48,6 @@ const ButtonGroup = ({ sizes, sizeChart, onBuyNow, onAddToCart }) => {
         </div>
       </div>
 
-      {/* Size chart modal */}
       <div className="modal fade" id="sizeChartModal" tabIndex="-1" aria-labelledby="sizeChartModalLabel" aria-hidden="true">
         <div className="modal-dialog">
           <div className="modal-content">
@@ -55,14 +66,20 @@ const ButtonGroup = ({ sizes, sizeChart, onBuyNow, onAddToCart }) => {
                   </tr>
                 </thead>
                 <tbody>
-                  {sizeChart.map(({ size, chest, waist, length }) => (
-                    <tr key={size}>
-                      <td>{size}</td>
-                      <td>{chest}</td>
-                      <td>{waist}</td>
-                      <td>{length}</td>
+                  {sizeChart.length > 0 ? (
+                    sizeChart.map(({ size, chest, waist, length }) => (
+                      <tr key={size}>
+                        <td>{size}</td>
+                        <td>{chest}</td>
+                        <td>{waist}</td>
+                        <td>{length}</td>
+                      </tr>
+                    ))
+                  ) : (
+                    <tr>
+                      <td colSpan="4">No size chart available</td>
                     </tr>
-                  ))}
+                  )}
                 </tbody>
               </table>
             </div>
@@ -70,14 +87,23 @@ const ButtonGroup = ({ sizes, sizeChart, onBuyNow, onAddToCart }) => {
         </div>
       </div>
 
-      {/* Add to cart and buy now buttons */}
       <div className="container mt-2 mb-2">
         <div className="row d-flex justify-content-center">
           <div className="col-12 col-md-auto d-grid mb-2 mb-md-0">
-            <button className="btn btn-dark btn-custom-lg w-100" onClick={onBuyNow}>BUY NOW</button>
+            <button
+              className={`btn btn-dark btn-custom-lg btn-d w-100 ${clickedButton === 'buyNow' ? 'btn-clicked' : ''}`}
+              onClick={() => handleButtonClick('buyNow')}
+            >
+              BUY NOW
+            </button>
           </div>
           <div className="col-12 col-md-auto d-grid">
-            <button className="btn btn-outline-dark btn-custom-lg w-100" onClick={onAddToCart}>ADD TO CART</button>
+            <button
+              className={`btn btn-light btn-custom-lg btn-od w-100 ${clickedButton === 'addToCart' ? 'btn-clicked' : ''}`}
+              onClick={() => handleButtonClick('addToCart')}
+            >
+              ADD TO CART
+            </button>
           </div>
         </div>
       </div>

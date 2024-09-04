@@ -1,0 +1,63 @@
+/* Sign Up Form Wrapper */
+.signup-form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+  }
+  
+  /* Sign Up Form Container */
+  .signup-form-container {
+    width: 100%;
+    max-width: 400px; /* Adjust as needed */
+    margin: 0 auto; /* Center the form horizontally */
+    padding: 20px;
+    background-color: #ffffff; /* Match login form background color */
+    border-radius: 5px; /* Match login form border radius */
+
+  }
+  
+  /* Sign Up Title */
+  .signup-title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #000000; /* Match login form title color */
+    letter-spacing: 2px;
+  }
+  
+  /* Sign Up Form */
+  .signup-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Sign Up Label */
+  .signup-label {
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #444;
+    text-transform: uppercase;
+  }
+  
+  /* Sign Up Input */
+  .signup-input {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  /* Sign Up Button */
+  .signup-button {
+    padding: 10px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .signup-button:hover {
+    background-color: #333;
+  }
+  

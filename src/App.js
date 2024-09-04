@@ -10,6 +10,10 @@ import ProductSection from './components/ProductSection';
 import ProductPage from './components/ProductPage/ProductPage';
 import ScrollingText from './components/Footer/ScrollingText';
 import Footer from './components/Footer/Footer';
+import LoginForm from './components/Login/LoginForm';
+import SignupForm from './components/Login/SignupForm';
+import Cart from './components/Cart/Cart';
+import { CartProvider } from './components/Cart/CartContext'
 
 function App() {
     const [isSideNavOpen, setSideNavOpen] = useState(false);
@@ -50,14 +54,12 @@ function App() {
     };
 
     useEffect(() => {
-        // Initialize classes and event listeners
         if (headerRef.current) {
             headerRef.current.classList.add('pre-scroll');
         }
         window.addEventListener('scroll', handleScroll);
 
         return () => {
-            // Clean up event listener
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
@@ -67,25 +69,31 @@ function App() {
         window.scrollTo(0, 0);
     }, [location.pathname]);
 
+    const shouldShowFooter = location.pathname !== '/login' && location.pathname !== '/signup';
+
     return (
-        <div className="App">
-            {location.pathname === '/' && (
-                <Header toggleSideNav={toggleSideNav} ref={headerRef} />
-            )}
-            <SideNav isOpen={isSideNavOpen} closeSideNav={closeSideNav} />
-            <Routes>
-                <Route path="/" element={
-                    <>
-                        <HeroSection ref={heroTextRef} />
-                        <ProductSection />
-                        <ScrollingText />
-                    </>
-                } />
-                <Route path="/product/:id" element={<ProductPage />} />
-            </Routes>
-            <Footer />
-        </div>
+        <CartProvider> {/* Wrap the application in CartProvider */}
+            <div className="App">
+                {location.pathname === '/' && (
+                    <Header toggleSideNav={toggleSideNav} ref={headerRef} />
+                )}
+                <SideNav isOpen={isSideNavOpen} closeSideNav={closeSideNav} />
+                <Routes>
+                    <Route path="/" element={
+                        <>
+                            <HeroSection ref={heroTextRef} />
+                            <ProductSection />
+                            <ScrollingText />
+                        </>
+                    } />
+                    <Route path="/product/:id" element={<ProductPage />} />
+                    <Route path="/cart" element={<Cart />} /> {/* Add this line */}
+                    <Route path="/login" element={<LoginForm />} />
+                    <Route path="/signup" element={<SignupForm />} />
+                </Routes>
+                {shouldShowFooter && <Footer />}
+            </div>
+        </CartProvider>
     );
 }
-
 export default App;
