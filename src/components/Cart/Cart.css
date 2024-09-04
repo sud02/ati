@@ -31,6 +31,7 @@
     display: flex;
     align-items: center;
     max-width: 60%; /* Adjust product section width */
+    flex: 1; /* Allow flex growth */
 }
 
 .cart-product img {
@@ -49,7 +50,8 @@
 .cart-quantity {
     display: flex;
     align-items: center;
-    padding-right: 96px;
+    flex: 1; /* Allow flex growth */
+    justify-content: center; /* Center align quantity */
 }
 
 .cart-quantity span {
@@ -70,6 +72,11 @@
 .cart-quantity button:disabled {
     opacity: 0.5;
     cursor: not-allowed;
+}
+
+.cart-total {
+    flex: 1; /* Allow flex growth */
+    text-align: right; /* Align total to the right */
 }
 
 .cart-total p {
@@ -129,9 +136,11 @@
         justify-content: space-between; /* Keep items side by side */
         padding: 15px 0; /* Adjust padding for a neat layout */
         gap: 15px; /* Reduced gap between items */
+        flex-wrap: nowrap; /* Prevent wrapping */
     }
     .cart-product {
-        max-width: 70%; /* Adjust product section width to fit with other items */
+        max-width: 50%; /* Adjust product section width to fit with other items */
+        flex: 1; /* Allow flex growth */
     }
 
     .cart-product img {
@@ -147,10 +156,18 @@
     .cart-quantity {
         margin-left: 8px; /* Add space to the left of quantity section */
         font-size: 0.8em; /* Reduced font size */
+        flex: 1; /* Allow flex growth */
+        justify-content: center; /* Center align quantity */
+    }
+
+    .cart-total {
+        flex: 1; /* Allow flex growth */
+        text-align: right; /* Align total to the right */
     }
 
     .cart-total p {
         padding-left: 0px; /* Move total somewhat to the left */
+        font-size: 0.8em; /* Adjust font size for mobile */
     }
 
     .checkout-button {
