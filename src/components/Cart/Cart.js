@@ -27,6 +27,10 @@ const Cart = () => {
         return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
     };
 
+    const formatPrice = (price) => {
+        return parseFloat(price).toFixed(2).replace(/\.00$/, '');
+    };
+
     return (
         <div className="cart-container">
             <h1>Your Cart</h1>
@@ -43,7 +47,6 @@ const Cart = () => {
                         )}
                         <div>
                             <p>{item.name}</p>
-                            <p>INR. {item.price.toFixed(2)}</p>
                             <p>Size: {item.size}</p>
                         </div>
                     </div>
@@ -54,16 +57,16 @@ const Cart = () => {
                         <button onClick={() => handleRemoveItem(item.id, item.size)}>🗑️</button>
                     </div>
                     <div className="cart-total">
-                        <p>INR. {(item.price * item.quantity).toFixed(2)}</p>
+                        <p>{formatPrice(item.price * item.quantity)}</p>
                     </div>
                 </div>
             ))}
             <div className="cart-summary">
-                <p>Estimated total <strong>INR. {calculateTotal().toFixed(2)}</strong></p>
+                <p>Estimated total <strong>INR. {formatPrice(calculateTotal())}</strong></p>
                 <p>Taxes included. Discounts and shipping calculated at checkout.</p>
                 <button className="checkout-button">Check out</button>
             </div>
-            <Link to="/shop-all" className="continue-shopping">Continue shopping</Link>
+            <Link to="/" className="continue-shopping">Continue shopping</Link>
         </div>
     );
 };
