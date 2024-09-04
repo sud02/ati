@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './ButtonGroup.css';
 
-const ButtonGroup = ({ sizes, sizeChart, onBuyNow, onAddToCart }) => {
+const ButtonGroup = ({ sizes = [], sizeChart = [], onBuyNow, onAddToCart }) => {
   // State to track the active size
   const [activeSize, setActiveSize] = useState(null);
 
@@ -55,14 +55,20 @@ const ButtonGroup = ({ sizes, sizeChart, onBuyNow, onAddToCart }) => {
                   </tr>
                 </thead>
                 <tbody>
-                  {sizeChart.map(({ size, chest, waist, length }) => (
-                    <tr key={size}>
-                      <td>{size}</td>
-                      <td>{chest}</td>
-                      <td>{waist}</td>
-                      <td>{length}</td>
+                  {sizeChart.length > 0 ? (
+                    sizeChart.map(({ size, chest, waist, length }) => (
+                      <tr key={size}>
+                        <td>{size}</td>
+                        <td>{chest}</td>
+                        <td>{waist}</td>
+                        <td>{length}</td>
+                      </tr>
+                    ))
+                  ) : (
+                    <tr>
+                      <td colSpan="4">No size chart available</td>
                     </tr>
-                  ))}
+                  )}
                 </tbody>
               </table>
             </div>
@@ -77,7 +83,7 @@ const ButtonGroup = ({ sizes, sizeChart, onBuyNow, onAddToCart }) => {
             <button className="btn btn-dark btn-custom-lg w-100" onClick={onBuyNow}>BUY NOW</button>
           </div>
           <div className="col-12 col-md-auto d-grid">
-            <button className="btn btn-outline-dark btn-custom-lg w-100" onClick={onAddToCart}>ADD TO CART</button>
+            <button className="btn btn-outline-dark btn-custom-lg w-100" onClick={() => onAddToCart(activeSize)}>ADD TO CART</button>
           </div>
         </div>
       </div>

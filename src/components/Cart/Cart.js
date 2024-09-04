@@ -1,23 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import './Cart.css'; // You will need to create this CSS file for styling
+import { CartContext } from './CartContext';
+import './Cart.css';
 
 const Cart = () => {
-    const [cartItems, setCartItems] = useState([
-        {
-            id: 1,
-            name: 'Absolut Minance',
-            price: 1699,
-            size: 'XS',
-            quantity: 1,
-            image: '/path/to/your/image.png' // Replace with the actual path to your product image
-        }
-    ]);
+    const { cartItems, setCartItems } = useContext(CartContext);
 
-    const handleQuantityChange = (itemId, action) => {
+    const handleQuantityChange = (itemId, size, action) => {
         setCartItems(prevItems =>
             prevItems.map(item =>
-                item.id === itemId
+                item.id === itemId && item.size === size
                     ? {
                           ...item,
                           quantity: action === 'increase' ? item.quantity + 1 : item.quantity - 1
@@ -27,8 +19,8 @@ const Cart = () => {
         );
     };
 
-    const handleRemoveItem = (itemId) => {
-        setCartItems(prevItems => prevItems.filter(item => item.id !== itemId));
+    const handleRemoveItem = (itemId, size) => {
+        setCartItems(prevItems => prevItems.filter(item => !(item.id === itemId && item.size === size)));
     };
 
     const calculateTotal = () => {
@@ -37,16 +29,18 @@ const Cart = () => {
 
     return (
         <div className="cart-container">
-            <h1>Your cart</h1>
+            <h1>Your Cart</h1>
             <div className="cart-header">
                 <span>Product</span>
                 <span>Quantity</span>
                 <span>Total</span>
             </div>
             {cartItems.map(item => (
-                <div className="cart-item" key={item.id}>
+                <div className="cart-item" key={`${item.id}-${item.size}`}>
                     <div className="cart-product">
-                        <img src={item.image} alt={item.name} />
+                        {item.images && item.images[0] && (
+                            <img src={item.images[0]} alt={item.name} />
+                        )}
                         <div>
                             <p>{item.name}</p>
                             <p>INR. {item.price.toFixed(2)}</p>
@@ -54,10 +48,10 @@ const Cart = () => {
                         </div>
                     </div>
                     <div className="cart-quantity">
-                        <button onClick={() => handleQuantityChange(item.id, 'decrease')} disabled={item.quantity <= 1}>-</button>
+                        <button onClick={() => handleQuantityChange(item.id, item.size, 'decrease')} disabled={item.quantity <= 1}>-</button>
                         <span>{item.quantity}</span>
-                        <button onClick={() => handleQuantityChange(item.id, 'increase')}>+</button>
-                        <button onClick={() => handleRemoveItem(item.id)}>🗑️</button>
+                        <button onClick={() => handleQuantityChange(item.id, item.size, 'increase')}>+</button>
+                        <button onClick={() => handleRemoveItem(item.id, item.size)}>🗑️</button>
                     </div>
                     <div className="cart-total">
                         <p>INR. {(item.price * item.quantity).toFixed(2)}</p>
