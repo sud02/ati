@@ -54,7 +54,9 @@ const Cart = () => {
                         <button onClick={() => handleQuantityChange(item.id, item.size, 'decrease')} disabled={item.quantity <= 1}>-</button>
                         <span>{item.quantity}</span>
                         <button onClick={() => handleQuantityChange(item.id, item.size, 'increase')}>+</button>
-                        <button onClick={() => handleRemoveItem(item.id, item.size)}>🗑️</button>
+                        <button onClick={() => handleRemoveItem(item.id, item.size)}>
+                            <span role="img" aria-label="remove item">🗑️</span>
+                        </button>
                     </div>
                     <div className="cart-total">
                         <p>{formatPrice(item.price * item.quantity)}</p>
