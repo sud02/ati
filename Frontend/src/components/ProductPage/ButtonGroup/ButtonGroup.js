@@ -4,6 +4,7 @@ import './ButtonGroup.css';
 const ButtonGroup = ({ sizes = [], sizeChart = [], onBuyNow, onAddToCart }) => {
   const [activeSize, setActiveSize] = useState(null);
   const [clickedButton, setClickedButton] = useState(null);
+  const [message, setMessage] = useState(null); // State for showing a message
 
   const handleSizeClick = (size) => {
     setActiveSize(size);
@@ -19,7 +20,15 @@ const ButtonGroup = ({ sizes = [], sizeChart = [], onBuyNow, onAddToCart }) => {
     if (buttonType === 'buyNow') {
       onBuyNow();
     } else if (buttonType === 'addToCart') {
-      onAddToCart(activeSize);
+      if (!activeSize) {
+        // Show message if no size is selected
+        setMessage('Please select a size.');
+        setTimeout(() => {
+          setMessage(null);
+        }, 3000); // Hide message after 5 seconds
+      } else {
+        onAddToCart(activeSize);
+      }
     }
   };
 
@@ -86,6 +95,13 @@ const ButtonGroup = ({ sizes = [], sizeChart = [], onBuyNow, onAddToCart }) => {
           </div>
         </div>
       </div>
+
+      {/* Display the message if it's set */}
+      {message && (
+        <div className="alert alert-warning text-center" role="alert">
+          {message}
+        </div>
+      )}
 
       <div className="container mt-2 mb-2">
         <div className="row d-flex justify-content-center">
