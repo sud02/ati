@@ -65,7 +65,6 @@ function App() {
     }, []);
 
     useEffect(() => {
-        // Scroll to top instantly on route change
         window.scrollTo(0, 0);
     }, [location.pathname]);
 
