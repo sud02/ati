@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/static/css/main.eec74e22.css",
+    "main.js": "/static/js/main.3a3e96fa.js",
+    "static/media/FontsFree-Net-MB-Empire-W01-Bold.ttf": "/static/media/FontsFree-Net-MB-Empire-W01-Bold.788653a510f09474e07c.ttf",
+    "static/media/Grenoble Serial Medium.ttf": "/static/media/Grenoble Serial Medium.7a61a4929e57e716dc43.ttf",
+    "index.html": "/index.html",
+    "main.eec74e22.css.map": "/static/css/main.eec74e22.css.map",
+    "main.3a3e96fa.js.map": "/static/js/main.3a3e96fa.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.eec74e22.css",
+    "static/js/main.3a3e96fa.js"
+  ]
+}
