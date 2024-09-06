@@ -4,6 +4,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Header from './components/Header/Header';
+import HeaderAll from './components/Header/HeaderAll'; // Import HeaderAll
 import SideNav from './components/SideNav';
 import HeroSection from './components/HeroSection';
 import ProductSection from './components/ProductSection';
@@ -73,8 +74,10 @@ function App() {
     return (
         <CartProvider> {/* Wrap the application in CartProvider */}
             <div className="App">
-                {location.pathname === '/' && (
+                {location.pathname === '/' ? (
                     <Header toggleSideNav={toggleSideNav} ref={headerRef} />
+                ) : (
+                    <HeaderAll toggleSideNav={toggleSideNav} ref={headerRef} /> // Use HeaderAll for non-home pages
                 )}
                 <SideNav isOpen={isSideNavOpen} closeSideNav={closeSideNav} />
                 <Routes>
@@ -95,4 +98,5 @@ function App() {
         </CartProvider>
     );
 }
+
 export default App;
