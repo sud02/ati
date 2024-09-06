@@ -5,6 +5,8 @@ import { CartContext } from './CartContext';
 import './Cart.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import trashBinIcon from '../../assets/dustbin.png';
+
 
 const Cart = () => {
     const { cartItems, setCartItems } = useContext(CartContext);
@@ -80,34 +82,37 @@ const Cart = () => {
                         <span>Total</span>
                     </div>
                     {cartItems.map(item => (
-                        <div className="cart-item" key={`${item.id}-${item.size}`}>
-                            <div className="cart-product">
-                                {item.images && item.images[0] && (
-                                    <Link to={`/product/${item.id}`}>
-                                        <img src={item.images[0]} alt={item.name} />
-                                    </Link>
-                                )}
-                                <div>
-                                    <p>{item.name}</p>
-                                    <p>Size: {item.size}</p>
-                                </div>
-                            </div>
-                            <div className="cart-quantity">
-                                <button onClick={() => handleQuantityChange(item.id, item.size, 'decrease')} disabled={item.quantity <= 1}>-</button>
-                                <span>{item.quantity}</span>
-                                <button onClick={() => handleQuantityChange(item.id, item.size, 'increase')}>+</button>
-                                <button onClick={() => handleRemoveItem(item.id, item.size)}>
-                                    <span role="img" aria-label="remove item">🗑️</span>
-                                </button>
-                            </div>
-                            <div className="cart-total">
-                                <p>{formatPrice(item.price * item.quantity)}</p>
-                            </div>
-                        </div>
+              <div className="cart-item" key={`${item.id}-${item.size}`}>
+              <div className="cart-product">
+                  {item.images && item.images[0] && (
+                      <Link to={`/product/${item.id}`}>
+                          <img src={item.images[0]} alt={item.name} />
+                      </Link>
+                  )}
+                  <div>
+                      <p>{item.name}</p>
+                      <p>Size: {item.size}</p>
+                  </div>
+              </div>
+              <div className="cart-quantity-wrapper">
+                  <div className="cart-quantity-controls">
+                      <button onClick={() => handleQuantityChange(item.id, item.size, 'decrease')} disabled={item.quantity <= 1}>-</button>
+                      <span>{item.quantity}</span>
+                      <button onClick={() => handleQuantityChange(item.id, item.size, 'increase')}>+</button>
+                  </div>
+                  <button className="cart-remove-button" onClick={() => handleRemoveItem(item.id, item.size)}>
+                      <img src={trashBinIcon} alt="Remove item" className="remove-icon" />
+                  </button>
+              </div>
+              <div className="cart-total">
+                  <p>{formatPrice(item.price * item.quantity)}</p>
+              </div>
+          </div>
+          
                     ))}
                     <div className="cart-summary">
-                        <p>Estimated total <strong>INR {formatPrice(calculateTotal())}</strong></p>
-                        <p>Taxes included. Discounts and shipping calculated at checkout.</p>
+                        <p>Total <strong>INR {formatPrice(calculateTotal())}</strong></p>
+                        <p>All Taxes Included.</p>
                         <button className="checkout-button" disabled={cartItems.length === 0}>Check out</button>
                     </div>
                     <Link to="/" className="continue-shopping">Continue shopping</Link>
