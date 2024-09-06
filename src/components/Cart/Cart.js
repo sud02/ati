@@ -111,12 +111,6 @@ const Cart = () => {
                         <button className="checkout-button" disabled={cartItems.length === 0}>Check out</button>
                     </div>
                     <Link to="/" className="continue-shopping">Continue shopping</Link>
-                    <div className="product-section">
-                        <h3>Featured Product</h3>
-                        <Link to="/product/1">
-                            <img src="/Static/ProductImgs/FIRE.jpg" alt="Featured Product" className="featured-product-image" />
-                        </Link>
-                    </div>
                 </>
             )}
         </div>
