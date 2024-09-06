@@ -102,10 +102,6 @@ body, html {
     background-color: #333;
 }
 
-.continue-shopping::before {
-    content: "⬅"; /* Heavy Wide-Headed Leftwards Arrow icon */
-    font-size: 1.2em;
-}
 
 
 .product-section h3 {

@@ -1,14 +1,14 @@
 import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom';
-import { CartContext } from '../Cart/CartContext'; // Import CartContext
+import { CartContext } from '../Cart/CartContext';
 import ProductCarousel from './Carousel/ProductCarousel';
 import MobileSlider from './MobileSlider/MobileSlider';
 import ProductDetails from './ProductDetails/ProductDetails';
 import ButtonGroup from './ButtonGroup/ButtonGroup';
 import Accordion from './Accordion/Accordion';
-import './ProductPage.css'; // Import the CSS file
+import Notification from '../Notification/Notification';
+import './ProductPage.css';
 
-// Sample product data
 const products = [
   { id: 1, name: 'FIRE T-SHIRT', description: 'Description for FIRE T-SHIRT', images: ['/Static/ProductImgs/FIRE.jpg', '/Static/ProductImgs/FIRE.jpg', '/Static/ProductImgs/FIRE.jpg', '/Static/ProductImgs/FIRE.jpg'], price: 1999 },
   { id: 2, name: 'FLORAL T-SHIRT', description: 'Description for FLORAL T-SHIRT', images: ['/Static/ProductImgs/FLORAL.jpg', '/Static/ProductImgs/FLORAL.jpg', '/Static/ProductImgs/FLORAL.jpg', '/Static/ProductImgs/FLORAL.jpg'], price: 1999 },
@@ -26,9 +26,9 @@ const sizeChart = [
 ];
 
 const ProductPage = () => {
-  const { id } = useParams(); // Get the product ID from the URL
-  const { addToCart } = useContext(CartContext); // Use CartContext
-  const product = products.find((p) => p.id === parseInt(id)); // Find the product by ID
+  const { id } = useParams();
+  const { addToCart, notification, closeNotification } = useContext(CartContext);
+  const product = products.find((p) => p.id === parseInt(id));
 
   if (!product) return <div>Product not found</div>;
 
@@ -49,9 +49,10 @@ const ProductPage = () => {
         sizes={sizes} 
         sizeChart={sizeChart}
         onBuyNow={handleBuyNow} 
-        onAddToCart={(size) => handleAddToCart(size)} // Ensure size is passed correctly
+        onAddToCart={(size) => handleAddToCart(size)}
       />
       <Accordion product={product} />
+      <Notification message={notification.message} visible={notification.visible} onClose={closeNotification} />
     </div>
   );
 };
