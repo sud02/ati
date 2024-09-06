@@ -1,8 +1,11 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './headerAll.css'; // Updated to use a separate CSS file for HeaderAll
+import { CartContext } from '../Cart/CartContext';
 
 const HeaderAll = forwardRef(({ toggleSideNav }, ref) => {
+    const { cartItems } = useContext(CartContext);
+
     return (
         <header className="header-all-custom" ref={ref}>
             <div className="menu-toggle-custom" onClick={toggleSideNav}>
@@ -20,7 +23,16 @@ const HeaderAll = forwardRef(({ toggleSideNav }, ref) => {
             <div className="header-title-custom">ATNATIC</div>
             <div className="header-icons-custom">
                 <Link to="/search"><img src="/Static/Symbols/magnifying-glass.png" alt="Search" /></Link>
-                <Link to="/cart"><img src="/Static/Symbols/shopping-bag.png" alt="Cart" /></Link>
+                <div className="cart-icon-container">
+                    <Link to="/cart">
+                        <img src="/Static/Symbols/shopping-bag.png" alt="Cart" />
+                        {cartItems.length > 0 && (
+                            <span className="cart-counter">
+                                {cartItems.length > 9 ? '9+' : cartItems.length}
+                            </span>
+                        )}
+                    </Link>
+                </div>
             </div>
         </header>
     );
