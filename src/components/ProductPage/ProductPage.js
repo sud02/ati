@@ -6,6 +6,7 @@ import MobileSlider from './MobileSlider/MobileSlider';
 import ProductDetails from './ProductDetails/ProductDetails';
 import ButtonGroup from './ButtonGroup/ButtonGroup';
 import Accordion from './Accordion/Accordion';
+import './ProductPage.css'; // Import the CSS file
 
 // Sample product data
 const products = [

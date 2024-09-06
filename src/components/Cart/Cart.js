@@ -1,7 +1,10 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import Slider from "react-slick";
 import { CartContext } from './CartContext';
 import './Cart.css';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const Cart = () => {
     const { cartItems, setCartItems } = useContext(CartContext);
@@ -28,47 +31,94 @@ const Cart = () => {
     };
 
     const formatPrice = (price) => {
-        return parseFloat(price).toFixed(2).replace(/\.00$/, '');
+        return price.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    };
+
+    const randomProducts = [
+        { id: 1, name: 'FIRE T-SHIRT', images: ['/Static/ProductImgs/FIRE.jpg'] },
+        { id: 2, name: 'FLORAL T-SHIRT', images: ['/Static/ProductImgs/FLORAL.jpg'] },
+        { id: 3, name: 'LITM T-SHIRT', images: ['/Static/ProductImgs/LIVE.jpg'] },
+        { id: 4, name: 'PIGEON T-SHIRT', images: ['/Static/ProductImgs/PIGEON.jpg'] },
+    ];
+
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2000,
     };
 
     return (
         <div className="cart-container">
             <h1>Your Cart</h1>
-            <div className="cart-header">
-                <span>Product</span>
-                <span>Quantity</span>
-                <span>Total</span>
-            </div>
-            {cartItems.map(item => (
-                <div className="cart-item" key={`${item.id}-${item.size}`}>
-                    <div className="cart-product">
-                        {item.images && item.images[0] && (
-                            <img src={item.images[0]} alt={item.name} />
-                        )}
-                        <div>
-                            <p>{item.name}</p>
-                            <p>Size: {item.size}</p>
-                        </div>
-                    </div>
-                    <div className="cart-quantity">
-                        <button onClick={() => handleQuantityChange(item.id, item.size, 'decrease')} disabled={item.quantity <= 1}>-</button>
-                        <span>{item.quantity}</span>
-                        <button onClick={() => handleQuantityChange(item.id, item.size, 'increase')}>+</button>
-                        <button onClick={() => handleRemoveItem(item.id, item.size)}>
-                            <span role="img" aria-label="remove item">🗑️</span>
-                        </button>
-                    </div>
-                    <div className="cart-total">
-                        <p>{formatPrice(item.price * item.quantity)}</p>
+            {cartItems.length === 0 ? (
+                <div className="empty-cart-container">
+                    <h2>Your cart is empty</h2>
+                    <Link to="/" className="continue-shopping">Continue shopping</Link>
+                    <div className="random-products-container">
+                        <h3>You might like</h3>
+                        <Slider {...settings}>
+                            {randomProducts.map(product => (
+                                <div key={product.id} className="random-product-card">
+                                    <Link to={`/product/${product.id}`}>
+                                        <img src={product.images[0]} alt={product.name} />
+                                    </Link>
+                                    <p>{product.name}</p>
+                                </div>
+                            ))}
+                        </Slider>
                     </div>
                 </div>
-            ))}
-            <div className="cart-summary">
-                <p>Estimated total <strong>INR. {formatPrice(calculateTotal())}</strong></p>
-                <p>Taxes included. Discounts and shipping calculated at checkout.</p>
-                <button className="checkout-button">Check out</button>
-            </div>
-            <Link to="/" className="continue-shopping">Continue shopping</Link>
+            ) : (
+                <>
+                    <div className="cart-header">
+                        <span>Product</span>
+                        <span>Quantity</span>
+                        <span>Total</span>
+                    </div>
+                    {cartItems.map(item => (
+                        <div className="cart-item" key={`${item.id}-${item.size}`}>
+                            <div className="cart-product">
+                                {item.images && item.images[0] && (
+                                    <Link to={`/product/${item.id}`}>
+                                        <img src={item.images[0]} alt={item.name} />
+                                    </Link>
+                                )}
+                                <div>
+                                    <p>{item.name}</p>
+                                    <p>Size: {item.size}</p>
+                                </div>
+                            </div>
+                            <div className="cart-quantity">
+                                <button onClick={() => handleQuantityChange(item.id, item.size, 'decrease')} disabled={item.quantity <= 1}>-</button>
+                                <span>{item.quantity}</span>
+                                <button onClick={() => handleQuantityChange(item.id, item.size, 'increase')}>+</button>
+                                <button onClick={() => handleRemoveItem(item.id, item.size)}>
+                                    <span role="img" aria-label="remove item">🗑️</span>
+                                </button>
+                            </div>
+                            <div className="cart-total">
+                                <p>{formatPrice(item.price * item.quantity)}</p>
+                            </div>
+                        </div>
+                    ))}
+                    <div className="cart-summary">
+                        <p>Estimated total <strong>INR {formatPrice(calculateTotal())}</strong></p>
+                        <p>Taxes included. Discounts and shipping calculated at checkout.</p>
+                        <button className="checkout-button" disabled={cartItems.length === 0}>Check out</button>
+                    </div>
+                    <Link to="/" className="continue-shopping">Continue shopping</Link>
+                    <div className="product-section">
+                        <h3>Featured Product</h3>
+                        <Link to="/product/1">
+                            <img src="/Static/ProductImgs/FIRE.jpg" alt="Featured Product" className="featured-product-image" />
+                        </Link>
+                    </div>
+                </>
+            )}
         </div>
     );
 };

@@ -1,0 +1,105 @@
+/* General Styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+h1, h2, h3, p {
+  font-family: "GrenobleSerial-Xbold-Regular", sans-serif;
+  font-weight: normal;
+}
+
+/* HeaderAll Styles */
+header.header-all-custom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  height: 70px;
+  width: 100%;
+  z-index: 1001;
+  opacity: 1;
+  visibility: visible;
+  user-select: none;
+}
+
+.header-links-custom {
+  display: flex;
+  gap: 30px;
+  flex: 1;
+  justify-content: flex-start;
+  padding-left: 40px;
+}
+.header-links-custom ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 30px;
+}
+.header-links-custom ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 400;
+  font-size: 14px;
+  position: relative; /* Ensure links are positioned correctly */
+  z-index: 1; /* Ensure links are above other elements */
+}
+
+.header-title-custom {
+  flex: 1;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.header-icons-custom {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-end;
+}
+.header-icons-custom a img {
+  width: 23px;
+  height: 23px;
+}
+
+.menu-toggle-custom {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 4px;
+}
+.menu-toggle-custom span {
+  width: 24px;
+  height: 2px;
+  background-color: rgba(0, 0, 0, 0.6);
+  transition: background-color 0.3s ease;
+}
+.menu-toggle-custom:hover span {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Mobile Specific Styles */
+@media (max-width: 768px) {
+  .header-links-custom {
+    display: none;
+  }
+  .menu-toggle-custom {
+    display: flex;
+  }
+  .header-title-custom {
+    position: static;
+    transform: none;
+    padding-left: 20px;
+  }
+}
