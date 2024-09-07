@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { CartContext } from '../Cart/CartContext';
 import ProductCarousel from './Carousel/ProductCarousel';
@@ -27,9 +27,13 @@ const sizeChart = [
 
 const ProductPage = () => {
   const { id } = useParams();
-  const { addToCart, notification, closeNotification } = useContext(CartContext);
+  const { addToCart, notification, closeNotification, setNotification } = useContext(CartContext);
   const product = products.find((p) => p.id === parseInt(id));
-  
+
+  useEffect(() => {
+    // Reset the notification when the component mounts
+    setNotification({ message: '', visible: false });
+  }, [setNotification]);
 
   if (!product) return <div>Product not found</div>;
 
