@@ -16,7 +16,7 @@ header.header-all-custom {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 25px;
+  padding: 21px;
   background-color: #fff;
   position: fixed;
   top: 0;
@@ -67,10 +67,11 @@ header.header-all-custom {
   gap: 10px;
   align-items: center;
   justify-content: flex-end;
+  margin-left: auto; /* Ensure icons are aligned to the right */
 }
 .header-icons-custom a img {
-  width: 23px;
-  height: 23px;
+  width: 24px;
+  height: 24px;
 }
 
 .menu-toggle-custom {
@@ -78,6 +79,7 @@ header.header-all-custom {
   flex-direction: column;
   cursor: pointer;
   gap: 4px;
+  padding-left: 5px;
 }
 .menu-toggle-custom span {
   width: 24px;
