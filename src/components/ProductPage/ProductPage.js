@@ -29,6 +29,7 @@ const ProductPage = () => {
   const { id } = useParams();
   const { addToCart, notification, closeNotification } = useContext(CartContext);
   const product = products.find((p) => p.id === parseInt(id));
+  
 
   if (!product) return <div>Product not found</div>;
 

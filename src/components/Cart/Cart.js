@@ -11,6 +11,8 @@ import trashBinIcon from '../../assets/dustbin.png';
 const Cart = () => {
     const { cartItems, setCartItems } = useContext(CartContext);
 
+    
+
     const handleQuantityChange = (itemId, size, action) => {
         setCartItems(prevItems =>
             prevItems.map(item =>
