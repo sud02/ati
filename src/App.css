@@ -223,12 +223,6 @@ header.visible .menu-toggle span {
   text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1);
 }
 
-@-webkit-keyframes keyarm {
-  0% { -webkit-transform: rotate(0deg); }
-  5% { -webkit-transform: rotate(-14deg); }
-  10% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(0deg); }
-}
 
 @keyframes keyarm {
   0% { transform: rotate(0deg); }
@@ -250,11 +244,20 @@ header.visible .menu-toggle span {
   -webkit-animation: keyarm 1.5s ease-in-out infinite;
   animation: keyarm 1.5s ease-in-out infinite;
 }
+@media not all and (min-resolution:.001dpcm) { 
+  @supports (-webkit-appearance:none) {
+    .sticky {
+      /* Safari-specific styles */
+      transition: top 0.5s ease, font-size 0.5s ease, color 0.5s ease;
+    }
+  }
+}
+
 
 /* Font Face */
 @font-face {
   font-family: "GrenobleSerial-Xbold-Medium";
-  src: url("/public/Static/Fonts/Grenoble Serial Medium.ttf") format("truetype");
+  src: url("/Static/Fonts/") format("truetype");
 }
 
 h1 {

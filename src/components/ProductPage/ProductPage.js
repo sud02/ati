@@ -30,8 +30,9 @@ const ProductPage = () => {
   const { addToCart, notification, closeNotification, setNotification } = useContext(CartContext);
   const product = products.find((p) => p.id === parseInt(id));
 
+  // Scroll to top when the component is mounted (i.e., when a product page is opened)
   useEffect(() => {
-    // Reset the notification when the component mounts
+    window.scrollTo(0, 0);
     setNotification({ message: '', visible: false });
   }, [setNotification]);
 
