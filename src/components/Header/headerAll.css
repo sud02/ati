@@ -1,18 +1,19 @@
 /* General Styles */
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: "Grenoble", sans-serif;
   background-color: #f5f5f5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 h1, h2, h3, p {
-  font-family: "GrenobleSerial-Xbold-Regular", sans-serif;
+
   font-weight: normal;
 }
 
 /* HeaderAll Styles */
-header.header-all-custom {
+header.header-all-custom { 
+  
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -52,11 +53,12 @@ header.header-all-custom {
 }
 
 .header-title-custom {
+  font-family: "Grenoble", sans-serif;
   flex: 1;
   text-align: center;
-  font-size: 24px;
+  font-size: 32px;
   font-weight: bold;
-  color: #333;
+  color: #000000;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -84,7 +86,7 @@ header.header-all-custom {
 .menu-toggle-custom span {
   width: 24px;
   height: 2px;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0);
   transition: background-color 0.3s ease;
 }
 .menu-toggle-custom:hover span {
@@ -104,4 +106,10 @@ header.header-all-custom {
     transform: none;
     padding-left: 20px;
   }
+}
+@font-face {
+  font-family: "Grenoble";
+  src: url("/path/to/fonts/Grenoble.woff2") format("woff2"),
+       url("/path/to/fonts/Grenoble.woff") format("woff"),
+       url("/Static//Fonts/Grenoble\ Serial\ Medium.ttf") format("truetype");
 }

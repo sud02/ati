@@ -1,5 +1,4 @@
-import React, { useContext } from 'react';
-import { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Slider from "react-slick";
 import { CartContext } from './CartContext';
@@ -8,13 +7,12 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import trashBinIcon from '../../assets/dustbin.png';
 
-
 const Cart = () => {
     const { cartItems, setCartItems } = useContext(CartContext);
+
     useEffect(() => {
         document.title = 'Cart';
-      }, []);
-   
+    }, []);
 
     const handleQuantityChange = (itemId, size, action) => {
         setCartItems(prevItems =>
@@ -60,7 +58,7 @@ const Cart = () => {
 
     return (
         <div className="cart-container">
-            <h1>Your Cart</h1>
+            <h2>Your Cart</h2>
             {cartItems.length === 0 ? (
                 <div className="empty-cart-container">
                     <h2>Your cart is empty</h2>
@@ -73,7 +71,7 @@ const Cart = () => {
                                     <Link to={`/product/${product.id}`}>
                                         <img src={product.images[0]} alt={product.name} />
                                     </Link>
-                                    <p>{product.name}</p>
+                                    <p className="product-name">{product.name}</p>
                                 </div>
                             ))}
                         </Slider>
@@ -87,33 +85,32 @@ const Cart = () => {
                         <span>Total</span>
                     </div>
                     {cartItems.map(item => (
-              <div className="cart-item" key={`${item.id}-${item.size}`}>
-              <div className="cart-product">
-                  {item.images && item.images[0] && (
-                      <Link to={`/product/${item.id}`}>
-                          <img src={item.images[0]} alt={item.name} />
-                      </Link>
-                  )}
-                  <div>
-                      <p>{item.name}</p>
-                      <p>Size: {item.size}</p>
-                  </div>
-              </div>
-              <div className="cart-quantity-wrapper">
-                  <div className="cart-quantity-controls">
-                      <button onClick={() => handleQuantityChange(item.id, item.size, 'decrease')} disabled={item.quantity <= 1}>-</button>
-                      <span>{item.quantity}</span>
-                      <button onClick={() => handleQuantityChange(item.id, item.size, 'increase')}>+</button>
-                  </div>
-                  <button className="cart-remove-button" onClick={() => handleRemoveItem(item.id, item.size)}>
-                      <img src={trashBinIcon} alt="Remove item" className="remove-icon" />
-                  </button>
-              </div>
-              <div className="cart-total">
-                  <p>{formatPrice(item.price * item.quantity)}</p>
-              </div>
-          </div>
-          
+                        <div className="cart-item" key={`${item.id}-${item.size}`}>
+                            <div className="cart-product">
+                                {item.images && item.images[0] && (
+                                    <Link to={`/product/${item.id}`}>
+                                        <img src={item.images[0]} alt={item.name} />
+                                    </Link>
+                                )}
+                                <div>
+                                    <p className="product-name">{item.name}</p>
+                                    <p>Size: {item.size}</p>
+                                </div>
+                            </div>
+                            <div className="cart-quantity-wrapper">
+                                <div className="cart-quantity-controls">
+                                    <button onClick={() => handleQuantityChange(item.id, item.size, 'decrease')} disabled={item.quantity <= 1}>-</button>
+                                    <span>{item.quantity}</span>
+                                    <button onClick={() => handleQuantityChange(item.id, item.size, 'increase')}>+</button>
+                                </div>
+                                <button className="cart-remove-button" onClick={() => handleRemoveItem(item.id, item.size)}>
+                                    <img src={trashBinIcon} alt="Remove item" className="remove-icon" />
+                                </button>
+                            </div>
+                            <div className="cart-total">
+                                <p>{formatPrice(item.price * item.quantity)}</p>
+                            </div>
+                        </div>
                     ))}
                     <div className="cart-summary">
                         <p>Total <strong>INR {formatPrice(calculateTotal())}</strong></p>
