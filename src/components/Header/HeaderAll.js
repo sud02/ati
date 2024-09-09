@@ -20,7 +20,9 @@ const HeaderAll = forwardRef(({ toggleSideNav }, ref) => {
                     <li><Link to="/track-order">Track your order</Link></li>
                 </ul>
             </div>
-            <div className="header-title-custom">ATNATIC</div>
+            <div className="header-title-custom">
+                <Link to="/">ATNATIC</Link>
+            </div>
             <div className="header-icons-custom">
                 <Link to="/search"><img src="/Static/Symbols/magnifying-glass.png" alt="Search" /></Link>
                 <div className="cart-icon-container">
