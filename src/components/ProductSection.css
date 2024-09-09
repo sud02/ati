@@ -107,3 +107,24 @@
     aspect-ratio: 1182/1600;
   }
 }
+@keyframes fadeInFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.product-card {
+  opacity: 0; /* Initially hidden */
+  transform: translateY(-20px); /* Slightly move up */
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.product-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
