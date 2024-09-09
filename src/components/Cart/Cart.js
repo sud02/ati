@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Slider from "react-slick";
 import { CartContext } from './CartContext';
@@ -10,8 +11,10 @@ import trashBinIcon from '../../assets/dustbin.png';
 
 const Cart = () => {
     const { cartItems, setCartItems } = useContext(CartContext);
-
-    
+    useEffect(() => {
+        document.title = 'Cart';
+      }, []);
+   
 
     const handleQuantityChange = (itemId, size, action) => {
         setCartItems(prevItems =>
