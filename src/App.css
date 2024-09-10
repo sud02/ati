@@ -20,7 +20,7 @@ header {
   background-color: #fff;
   position: fixed;
   top: 0;
-  height: 70px;
+  height: 60px;
   width: 100%;
   z-index: 1001;
   opacity: 0;
@@ -35,18 +35,21 @@ header.visible {
 }
 
 /* Centered ATNATIC Logo */
+/* Default styles for header-title */
 .header-title {
   flex: 1;
   text-align: center;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 2px;
+  bottom: 2.5px;
   font-family: "Grenoble", sans-serif;
-  font-size: 32px;
+  font-size: 28px;
   font-weight: bold;
   color: #000000;
+  padding-right: 8px;
 }
+
 
 .header-title a {
   text-decoration: none; /* Remove underline */
@@ -132,7 +135,7 @@ header.visible .menu-toggle span {
   flex: 1;
   padding-right: 10px;
   position: fixed;
-  top: 20px;
+  top: 16px;
   right: 5px;
   z-index: 1000;
 }
