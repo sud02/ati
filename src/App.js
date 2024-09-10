@@ -61,10 +61,13 @@ function App() {
         }
         window.addEventListener('scroll', handleScroll);
 
+        // Call handleScroll manually to set the initial state
+        handleScroll();
+
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
-    }, []);
+    }, [location.pathname]); // Add location.pathname as a dependency
 
     const shouldShowFooter = location.pathname !== '/login' && location.pathname !== '/signup';
 
