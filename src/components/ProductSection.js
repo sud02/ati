@@ -67,7 +67,18 @@ const ProductSection = () => {
             ref={(el) => (productRefs.current[index] = el)} // Assign each product card to the ref
           >
             <div className="card-image">
-              <img src={product.img} alt={product.alt} loading="eager"/>
+              <img 
+                src={product.img} 
+                alt={product.alt} 
+                loading="eager"
+                srcSet={`
+                  ${product.img}?width=100 100w,
+                  ${product.img}?width=200 200w,
+                  ${product.img}?width=400 400w,
+                  ${product.img}?width=800 800w
+                `}
+                sizes="(max-width: 800px) 100vw, 50vw"
+              />
             </div>
             <div className="card-content">
               <h3>{product.name}</h3>

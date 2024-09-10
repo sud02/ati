@@ -69,7 +69,7 @@ const Cart = () => {
                             {randomProducts.map(product => (
                                 <div key={product.id} className="random-product-card">
                                     <Link to={`/product/${product.id}`}>
-                                        <img src={product.images[0]} alt={product.name} />
+                                        <img src={product.images[0]} alt={product.name} loading="eager"/>
                                     </Link>
                                     <p className="product-name">{product.name}</p>
                                 </div>
