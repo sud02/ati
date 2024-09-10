@@ -12,6 +12,11 @@ const Header = forwardRef(({ toggleSideNav }, ref) => {
                 <span></span>
                 <span></span>
             </div>
+            <div className="header-title">
+                <Link to="/">
+                    <h1 className="header-title">ATNATIC</h1>
+                </Link>
+            </div>
             <div className="header-links">
                 <ul>
                     <li><Link to="/shop-all">Shop All</Link></li>

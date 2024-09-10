@@ -1,13 +1,9 @@
-import React, { forwardRef } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
 
-const HeroSection = forwardRef((props, ref) => {
+const HeroSection = () => {
     return (
         <div className="hero-section">
             <div className="hero-image-left">
-                <Link to="/">
-                    <h1 className="hero-scroll" ref={ref}>ATNATIC</h1>
-                </Link>
                 <div className="video-container">
                     <video 
                         src="/Static/Models/Refercopy.mp4" 
@@ -22,6 +18,6 @@ const HeroSection = forwardRef((props, ref) => {
             </div>
         </div>
     );
-});
+};
 
 export default HeroSection;

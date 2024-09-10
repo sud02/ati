@@ -15,7 +15,7 @@ import LoginForm from './components/Login/LoginForm';
 import SignupForm from './components/Login/SignupForm';
 import Cart from './components/Cart/Cart';
 import { CartProvider } from './components/Cart/CartContext';
-import ScrollToTop from './components/ScrollToTop'; // Import the new ScrollToTop component
+import ScrollToTop from './components/ScrollToTop'; // Import ScrollToTop component
 
 function App() {
     const [isSideNavOpen, setSideNavOpen] = useState(false);
