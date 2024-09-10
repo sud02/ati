@@ -19,6 +19,8 @@ const ProductSection = () => {
 
   // Function to handle scrolling into view
   useEffect(() => {
+    const currentRefs = productRefs.current;
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -34,7 +36,7 @@ const ProductSection = () => {
     );
 
     // Observe each product card
-    productRefs.current.forEach((product) => {
+    currentRefs.forEach((product) => {
       if (product) {
         observer.observe(product);
       }
@@ -42,13 +44,11 @@ const ProductSection = () => {
 
     return () => {
       // Cleanup observer when component unmounts
-      if (productRefs.current) {
-        productRefs.current.forEach((product) => {
-          if (product) {
-            observer.unobserve(product);
-          }
-        });
-      }
+      currentRefs.forEach((product) => {
+        if (product) {
+          observer.unobserve(product);
+        }
+      });
     };
   }, [products]);
 
@@ -67,7 +67,7 @@ const ProductSection = () => {
             ref={(el) => (productRefs.current[index] = el)} // Assign each product card to the ref
           >
             <div className="card-image">
-              <img src={product.img} alt={product.alt} />
+              <img src={product.img} alt={product.alt} loading="eager"/>
             </div>
             <div className="card-content">
               <h3>{product.name}</h3>

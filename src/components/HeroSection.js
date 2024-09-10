@@ -15,6 +15,7 @@ const HeroSection = forwardRef((props, ref) => {
                         loop 
                         muted
                         playsInline
+                        preload="auto"
                         className="hero-video"
                     />
                 </div>
