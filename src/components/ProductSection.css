@@ -61,20 +61,20 @@
   justify-content: flex-start;
   padding-top: 0px;
 }
-
 .card-content h3 {
   font-size: 12px;
-  margin-bottom: 0px;
+  margin-top: 5px; /* Adjusted value */
   font-family: 'YourCustomFont', sans-serif;
-  margin: 10px;
   color: #353535;
+  text-align: left;
 }
 
 .card-content p {
   font-size: 12px;
-  margin: 0.2px;
   color: #707070;
   font-family: 'YourCustomFont', sans-serif;
+  text-align: left;
+  margin-top: -5px; 
 }
 
 @media (max-width: 1024px) {
