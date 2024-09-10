@@ -42,12 +42,12 @@ header.visible {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  bottom: 2.5px;
+  bottom: 2px;
   font-family: "Grenoble", sans-serif;
   font-size: 28px;
   font-weight: bold;
   color: #000000;
-  padding-right: 8px;
+  padding-right: 7.5px;
 }
 
 
@@ -63,6 +63,7 @@ header.visible {
     position: static;
     transform: none;
     padding-left: 1px;
+    padding-top: 5px;
   }
 }
 

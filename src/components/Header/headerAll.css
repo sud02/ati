@@ -7,24 +7,28 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 h1, h2, h3, p {
+
   font-weight: normal;
 }
 
 /* HeaderAll Styles */
 header.header-all-custom { 
+  
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 25px; /* Unified padding */
+  padding: 21px;
   background-color: #fff;
-  position: fixed; /* Fixes the header at the top */
-  top: 0; /* Positions the header at the top */
+  position: fixed;
+  top: 0;
   height: 60px;
   width: 100%;
+  z-index: 1001;
   opacity: 1;
   visibility: visible;
   user-select: none;
 }
+
 .header-links-custom {
   display: flex;
   gap: 30px;
@@ -44,28 +48,25 @@ header.header-all-custom {
   color: #333;
   font-weight: 400;
   font-size: 14px;
-  position: relative;
-  z-index: 1;
+  position: relative; /* Ensure links are positioned correctly */
+  z-index: 1; /* Ensure links are above other elements */
 }
 
 .header-title-custom {
+  font-family: "Grenoble", sans-serif;
   flex: 1;
   text-align: center;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 2.5px;
-  font-family: "Grenoble", sans-serif;
   font-size: 28px;
   font-weight: bold;
   color: #000000;
-  padding-right: 8px;
-  margin-right: 4px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .header-title-custom a {
-  text-decoration: none;
-  color: inherit;
-  font-family: "Grenoble", sans-serif;
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Inherit color from parent */
+  font-family: "Grenoble", sans-serif; /* Apply the Grenoble font */
 }
 .header-icons-custom {
   display: flex;
@@ -84,11 +85,13 @@ header.header-all-custom {
   height: 24px;
 }
 
+
 .menu-toggle-custom {
   display: none;
   flex-direction: column;
   cursor: pointer;
   gap: 4px;
+  padding-left: 5px;
 }
 .menu-toggle-custom span {
   width: 24px;
@@ -111,13 +114,13 @@ header.header-all-custom {
   .header-title-custom {
     position: static;
     transform: none;
+    padding-left: 0px;
+    padding-right: 17px;
   }
 }
-
-/* Ensure consistent font sizes */
 @font-face {
   font-family: "Grenoble";
   src: url("/path/to/fonts/Grenoble.woff2") format("woff2"),
        url("/path/to/fonts/Grenoble.woff") format("woff"),
-       url("/Static/Fonts/Grenoble Serial Medium.ttf") format("truetype");
+       url("/Static//Fonts/Grenoble\ Serial\ Medium.ttf") format("truetype");
 }
