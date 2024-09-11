@@ -81,7 +81,12 @@
       font-size: 0.9em;
       font-weight: bold;
   }
-  
+
+  @media (max-width: 600px) {
+    .cart-total p {
+        margin-top: 20px; 
+    }
+}
   .checkout-button {
       width: 100%;
       padding: 12px;
@@ -214,6 +219,13 @@
       align-items: center;
       gap: 20px; /* Adds space between quantity controls and the dustbin */
   }
+  @media (max-width: 600px) {
+    .cart-quantity-wrapper {
+        position: relative;
+        right: -20px; /* Adjust this value as needed to move it to the right */
+    }
+}
+
   
   .cart-quantity-controls {
       display: flex;
