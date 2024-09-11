@@ -5504,6 +5504,16 @@ fsevents@^1.2.7:
     bindings "^1.5.0"
     nan "^2.12.1"
 
+fsevents@~2.3.2:
+  version "2.3.3"
+  resolved "https://registry.npmjs.org/fsevents/-/fsevents-2.3.3.tgz"
+  integrity sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==
+
+fsevents@2.1.2:
+  version "2.1.2"
+  resolved "https://registry.npmjs.org/fsevents/-/fsevents-2.1.2.tgz"
+  integrity sha512-R4wDiBwZ0KzpgOWetKDug1FZcYhqYnUYKtfZYt4mD5SBz76q0KR4Q9o7GIPamsVPGmW3EYPPJ0dOOjvx32ldZA==
+
 function-bind@^1.1.2:
   version "1.1.2"
   resolved "https://registry.npmjs.org/function-bind/-/function-bind-1.1.2.tgz"
@@ -9679,6 +9689,13 @@ react-router-dom@^6.26.1:
     "@remix-run/router" "1.19.1"
     react-router "6.26.1"
 
+react-router-sitemap@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.npmjs.org/react-router-sitemap/-/react-router-sitemap-1.2.0.tgz"
+  integrity sha512-3aETwxCFTGHsGbXpyh7sr+c/WDr0q1rpng0M4pgoV6Owl3673buejPHGvzDmZEdiqhRa+I0znRDneKRc1NC06Q==
+  dependencies:
+    sitemap "^1.6.0"
+
 react-router@6.26.1:
   version "6.26.1"
   resolved "https://registry.npmjs.org/react-router/-/react-router-6.26.1.tgz"
@@ -10569,6 +10586,14 @@ sisteransi@^1.0.5:
   version "1.0.5"
   resolved "https://registry.npmjs.org/sisteransi/-/sisteransi-1.0.5.tgz"
   integrity sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==
+
+sitemap@^1.6.0:
+  version "1.13.0"
+  resolved "https://registry.npmjs.org/sitemap/-/sitemap-1.13.0.tgz"
+  integrity sha512-++mJIYR1+WpO1m0iqZv9viGmalxkm6r8Zq8OOFcFzx3aLlXU50T0JV3pvr6WHyFkwudlXmt190ZRbtH3yOm3Hg==
+  dependencies:
+    underscore "^1.7.0"
+    url-join "^1.1.0"
 
 slash@^1.0.0:
   version "1.0.0"
@@ -11480,6 +11505,11 @@ uncontrollable@^8.0.1:
   resolved "https://registry.npmjs.org/uncontrollable/-/uncontrollable-8.0.4.tgz"
   integrity sha512-ulRWYWHvscPFc0QQXvyJjY6LIXU56f0h8pQFvhxiKk5V1fcI8gp9Ht9leVAhrVjzqMw0BgjspBINx9r6oyJUvQ==
 
+underscore@^1.7.0:
+  version "1.13.7"
+  resolved "https://registry.npmjs.org/underscore/-/underscore-1.13.7.tgz"
+  integrity sha512-GMXzWtsc57XAtguZgaQViUOzs0KTkk8ojr3/xAxXLITqf/3EMwxC0inyETfDFjH/Krbhuep0HNbbjI9i/q3F3g==
+
 undici-types@~6.19.2:
   version "6.19.8"
   resolved "https://registry.npmjs.org/undici-types/-/undici-types-6.19.8.tgz"
@@ -11589,6 +11619,11 @@ urix@^0.1.0:
   version "0.1.0"
   resolved "https://registry.npmjs.org/urix/-/urix-0.1.0.tgz"
   integrity sha512-Am1ousAhSLBeB9cG/7k7r2R0zj50uDRlZHPGbazid5s9rlF1F/QKYObEKSIunSjIOkJZqwRRLpvewjEkM7pSqg==
+
+url-join@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.npmjs.org/url-join/-/url-join-1.1.0.tgz"
+  integrity sha512-zz1wZk4Lb5PTVwZ3HWDmm8XnlPvmOof6/fjdDPA5yBrUcbtV64U6bV832Zf1BtU2WkBBWaUT46wCs+l0HP5nhg==
 
 url-loader@2.3.0:
   version "2.3.0"
