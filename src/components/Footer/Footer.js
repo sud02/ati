@@ -12,18 +12,18 @@ const Footer = () => {
                         <ul>
                             <li><a href="/Login">MEMBERS LOGIN</a></li>
                             <li><a href="/Exchnage">PLACE AN EXCHANGE/RETURN REQUEST</a></li>
-                            <li><a href="/ExchnagePolicy">EXCHANGE/RETURNS POLICY</a></li>
-                            <li><a href="/Faq">FAQ</a></li>
-                            <li><a href="/Terms">TERMS</a></li>
-                            <li><a href="/Shipping">SHIPPING</a></li>
+                            <li><a href="/Contact">CONTACT US</a></li>
                         </ul>
                     </div>
                     <div className="footer-section">
-                        <h4>COMPANY</h4>
+                        <h4>THE COMPANY</h4>
                         <ul>
                             <li><a href="/Story">STORY</a></li>
+                            <li><a href="/ExchnagePolicy">EXCHANGE/RETURNS POLICY</a></li>
+                            <li><a href="/Shipping">SHIPPING</a></li>
                             <li><a href="/Careers">CAREERS</a></li>
-                            <li><a href="/Contact">CONTACT US</a></li>
+                            <li><a href="/Terms">TERMS</a></li>
+                           
                         </ul>
                     </div>
                 </div>

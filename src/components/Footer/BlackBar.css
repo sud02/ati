@@ -1,8 +1,14 @@
+@font-face {
+    font-family: 'HelveticaWorld';
+    src: url('/Static/Fonts/HelveticaWorld-Regular.ttf') format('truetype');
+}
+
 .black-bar {
     background-color: black;
     color: white;
     text-align: center;
     padding: 10px 0;
+    margin-top: -20px; /* Adjust this value as needed to move the bar up */
 }
 
 .black-bar a {
@@ -10,8 +16,4 @@
     text-decoration: none;
     font-size: 0.7rem;
     font-family: 'HelveticaWorld', sans-serif;
-}
-@font-face {
-    font-family: 'HelveticaWorld';
-    src: url('/Static/Fonts/HelveticaWorld-Regular.ttf') format('truetype');
 }
