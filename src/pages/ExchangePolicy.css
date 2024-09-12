@@ -16,20 +16,20 @@
 
 .policy-title {
     text-align: center;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bold;
     margin-bottom: 30px;
 }
 
 .section-title {
-    font-size: 18px;
+    font-size: 14px;
     font-weight: bold;
     margin-bottom: 10px;
 }
 
 .policy-text {
     text-align: justify;
-    font-size: 14px;
+    font-size: 8px;
     line-height: 1.8;
     margin-bottom: 20px;
 }
@@ -48,7 +48,7 @@
 }
 
 .policy-list li {
-    font-size: 14px;
+    font-size: 7px;
     margin-bottom: 10px;
     line-height: 1.8;
 }
