@@ -81,9 +81,9 @@ const Cart = () => {
             ) : (
                 <>
                     <div className="cart-header">
-                        <span>Product</span>
-                        <span>Quantity</span>
-                        <span>Total</span>
+                        <span>PRODUCT</span>
+                        <span>QUANTITY</span>
+                        <span>TOTAL</span>
                     </div>
                     {cartItems.map(item => (
                         <div className="cart-item" key={`${item.id}-${item.size}`}>
@@ -95,7 +95,7 @@ const Cart = () => {
                                 )}
                                 <div>
                                     <p className="product-name">{item.name}</p>
-                                    <p>Size: {item.size}</p>
+                                    <p className="product-size">SIZE: {item.size}</p>
                                 </div>
                             </div>
                             <div className="cart-quantity-wrapper">
@@ -114,11 +114,13 @@ const Cart = () => {
                         </div>
                     ))}
                     <div className="cart-summary">
-                        <p>Total <strong>INR {formatPrice(calculateTotal())}</strong></p>
-                        <p>All Taxes Included.</p>
-                        <button className="checkout-button" disabled={cartItems.length === 0}>Check out</button>
+                    <p className="total-price">TOTAL <strong>INR {formatPrice(calculateTotal())}</strong></p>
+<p className="taxes-included">ALL TAXES INCLUDED.</p>
+<button className="checkout-button" disabled={cartItems.length === 0}>CHECK OUT</button>
                     </div>
-                    <Link to="/" className="continue-shopping">Continue shopping</Link>
+                    <div className="cart-buttons-container">
+                        <Link to="/" className="continue-shopping">CONTINUE SHOPPING</Link>
+                    </div>
                 </>
             )}
         </div>

@@ -36,12 +36,21 @@ body, html {
     align-items: center;
     padding: 10px 0;
     border-bottom: 1px solid #ddd;
+    
+}
+.cart-header span {
+    font-size: 0.85em; /* Decrease font size */
+}
+.product-name {
+    font-size: 0.85em;
+    color: #333;
+    margin-top: 10px; /* Add gap on top */
+    margin-bottom: 0px;
 }
 
 .cart-product img {
     width: 80px;
     height: 80px;
-    border-radius: 5px;
     margin-right: 10px;
 }
 
@@ -79,23 +88,34 @@ body, html {
 
 .cart-total p {
     font-size: 0.9em;
-    font-weight: bold;
 }
 
 @media (max-width: 600px) {
     .cart-total p {
-        margin-top: 20px; 
+       margin-bottom: 60px;
     }
+}
+
+.total-price {
+    font-size: 0.85em;
+    padding-top: 5px;
+    margin-bottom: 0px; /* Decrease font size */
+}
+
+.taxes-included {
+    font-size: 0.75em; /* Decrease font size */
 }
 
 .checkout-button {
     width: 100%;
-    padding: 12px;
+    padding: 10px;
     background-color: #000;
     color: #fff;
-    font-size: 0.9em;
+    font-size: 0.85em; /* Decrease font size */
     cursor: pointer;
-    border-radius: 5px;
+    border: none; /* Remove border */
+    outline: none; /* Remove outline */
+    transition: background-color 0.5s ease;
 }
 
 .empty-cart-container {
@@ -121,6 +141,14 @@ body, html {
 .empty-cart-container h2::before {
     font-size: 1.5em;
 }
+/* Container for the buttons */
+.cart-buttons-container {
+    display: flex;
+    justify-content: center; /* Align items to the right */
+    gap: 20px; /* Space between buttons if needed */
+    margin-top: 20px; /* Space above the buttons */
+}
+
 .continue-shopping {
     display: inline-block;
     padding: 8px 16px; /* Decrease padding */
@@ -216,8 +244,8 @@ body, html {
 }
 
 .remove-icon {
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
     cursor: pointer;
     background: none; /* No background */
     border: none; /* No border */
@@ -230,13 +258,15 @@ body, html {
 .cart-quantity-wrapper {
     display: flex;
     align-items: center;
-    gap: 20px; /* Adds space between quantity controls and the dustbin */
+    gap: 10px;
+    margin-bottom: 60px;
+    margin-right: 20px; /* Adds space between quantity controls and the dustbin */
 }
 
 @media (max-width: 600px) {
     .cart-quantity-wrapper {
         position: relative;
-        right: -20px; /* Adjust this value as needed to move it to the right */
+        right: -10px; /* Adjust this value as needed to move it to the right */
     }
 }
 
@@ -251,18 +281,18 @@ body, html {
 .cart-quantity-controls button {
     background-color: #fff;
     border: none;
-    padding: 8px 12px;
+    padding: 4px 8px; /* Decrease padding */
     cursor: pointer;
-    font-size: 1em;
+    font-size: 0.85em; /* Decrease font size */
+}
+
+.cart-quantity-controls span {
+    padding: 4px 8px; /* Decrease padding */
+    font-size: 0.85em; /* Decrease font size */
 }
 
 .cart-quantity-controls button:last-child {
     border-right: none;
-}
-
-.cart-quantity-controls span {
-    padding: 8px 12px;
-    font-size: 1em;
 }
 
 .cart-remove-button {
