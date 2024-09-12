@@ -14,7 +14,9 @@ import Footer from './components/Footer/Footer';
 import LoginForm from './components/Login/LoginForm';
 import SignupForm from './components/Login/SignupForm';
 import Cart from './components/Cart/Cart';
-import { CartProvider } from './components/Cart/CartContext'
+import { CartProvider } from './components/Cart/CartContext';
+import ScrollToTop from './components/ScrollToTop'; // Import ScrollToTop component
+import ExchangePolicy from './pages/ExchangePolicy'; // Import ExchangePolicy
 
 function App() {
     const [isSideNavOpen, setSideNavOpen] = useState(false);
@@ -60,19 +62,19 @@ function App() {
         }
         window.addEventListener('scroll', handleScroll);
 
+        // Call handleScroll manually to set the initial state
+        handleScroll();
+
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
-    }, []);
+    }, [location.pathname]); // Add location.pathname as a dependency
 
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, [location.pathname]);
-
-    const shouldShowFooter = location.pathname !== '/login' && location.pathname !== '/signup';
+    const shouldShowFooter = location.pathname !== '/login' && location.pathname !== '/signup' && location.pathname !== '/exchangePolicy';
 
     return (
-        <CartProvider> {/* Wrap the application in CartProvider */}
+        <CartProvider>
+            <ScrollToTop /> {/* Add ScrollToTop to ensure every page starts from the top */}
             <div className="App">
                 {location.pathname === '/' ? (
                     <Header toggleSideNav={toggleSideNav} ref={headerRef} />
@@ -89,9 +91,10 @@ function App() {
                         </>
                     } />
                     <Route path="/product/:id" element={<ProductPage />} />
-                    <Route path="/cart" element={<Cart />} /> {/* Add this line */}
+                    <Route path="/cart" element={<Cart />} />
                     <Route path="/login" element={<LoginForm />} />
                     <Route path="/signup" element={<SignupForm />} />
+                    <Route path="/ExchnagePolicy" element={<ExchangePolicy />} /> {/* Add new route */}
                 </Routes>
                 {shouldShowFooter && <Footer />}
             </div>

@@ -4,13 +4,13 @@ export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState(() => {
-    // Load cart items from local storage
     const savedCartItems = localStorage.getItem('cartItems');
     return savedCartItems ? JSON.parse(savedCartItems) : [];
   });
 
+  const [notification, setNotification] = useState({ message: '', visible: false });
+
   useEffect(() => {
-    // Save cart items to local storage whenever they change
     localStorage.setItem('cartItems', JSON.stringify(cartItems));
   }, [cartItems]);
 
@@ -25,10 +25,15 @@ export const CartProvider = ({ children }) => {
         return [...prevItems, { ...product, size, quantity: 1 }];
       }
     });
+    setNotification({ message: `${product.name} added to cart`, visible: true });
+  };
+
+  const closeNotification = () => {
+    setNotification({ ...notification, visible: false });
   };
 
   return (
-    <CartContext.Provider value={{ cartItems, setCartItems, addToCart }}>
+    <CartContext.Provider value={{ cartItems, setCartItems, addToCart, notification, closeNotification, setNotification }}>
       {children}
     </CartContext.Provider>
   );
