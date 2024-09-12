@@ -64,7 +64,7 @@ const ProductSection = () => {
             className="product-card"
             key={product.id}
             onClick={() => handleClick(product.id)}
-            ref={(el) => (productRefs.current[index] = el)} // Assign each product card to the ref
+            ref={(el) => (productRefs.current[index] = el)}
           >
             <div className="card-image">
               <img 
