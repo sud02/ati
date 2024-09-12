@@ -1,8 +1,9 @@
 import React from 'react';
 import './Footer.css';
-
+import BlackBar from './BlackBar';
 const Footer = () => {
     return (
+        <>
         <footer className="footer">
             <div className="footer-container">
                 <div className="footer-right">
@@ -32,6 +33,8 @@ const Footer = () => {
                 <p>© 2024 ATNATIC, ALL RIGHTS RESERVED.</p>
             </div>
         </footer>
+        <BlackBar />
+        </>
     );
 };
 
