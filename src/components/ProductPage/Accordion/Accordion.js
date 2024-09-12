@@ -97,11 +97,11 @@ const Accordion = ({ product }) => {
                 </h5>
               </div>
 
-              <div
-                id={`collapse${index}`}
-                className={`collapse ${openSection === `collapse${index}` ? 'show' : ''}`}
-                aria-labelledby={`heading${index}`}
-              >
+               <div
+                 id={`collapse${index}`}
+                 className={`collapse ${openSection === `collapse${index}` ? 'show' : ''}`}
+                 aria-labelledby={`heading${index}`}
+               >
                 <div className="card-body">
                   {Array.isArray(section.content) ? (
                     <ul className="list-styled">
