@@ -1,0 +1,17 @@
+.black-bar {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.black-bar a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.7rem;
+    font-family: 'HelveticaWorld', sans-serif;
+}
+@font-face {
+    font-family: 'HelveticaWorld';
+    src: url('/Static/Fonts/HelveticaWorld-Regular.ttf') format('truetype');
+}
