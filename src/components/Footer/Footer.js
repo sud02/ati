@@ -5,10 +5,6 @@ const Footer = () => {
     return (
         <footer className="footer">
             <div className="footer-container">
-                <div className="footer-left">
-                    <h2 className="footer-logo">ATNATIC</h2>
-                    <p>© 2024 ATNATIC, ALL RIGHTS RESERVED.</p>
-                </div>
                 <div className="footer-right">
                     <div className="footer-section">
                         <h4>HELP</h4>
@@ -27,10 +23,13 @@ const Footer = () => {
                             <li><a href="/Story">STORY</a></li>
                             <li><a href="/Careers">CAREERS</a></li>
                             <li><a href="/Contact">CONTACT US</a></li>
-
                         </ul>
                     </div>
                 </div>
+            </div>
+            <div className="footer-copyright">
+                <h2 className="footer-logo">ATNATIC</h2>
+                <p>© 2024 ATNATIC, ALL RIGHTS RESERVED.</p>
             </div>
         </footer>
     );
