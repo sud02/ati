@@ -49,22 +49,23 @@ const Cart = () => {
     const settings = {
         dots: true,
         infinite: true,
-        speed: 500,
+        speed: 700,
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 2000,
+        autoplaySpeed: 2800,
     };
 
     return (
         <div className="cart-container">
-            <h2>Your Cart</h2>
             {cartItems.length === 0 ? (
                 <div className="empty-cart-container">
-                    <h2>Your cart is empty</h2>
-                    <Link to="/" className="continue-shopping">Continue shopping</Link>
+                    <div className="empty-cart-message">
+                        <h2>YOUR CART IS EMPTY</h2>
+                        <Link to="/" className="continue-shopping">CONTINUE SHOPPING</Link>
+                    </div>
                     <div className="random-products-container">
-                        <h3>You might like</h3>
+                        <h6>YOU MIGHT LIKE</h6>
                         <Slider {...settings}>
                             {randomProducts.map(product => (
                                 <div key={product.id} className="random-product-card">
