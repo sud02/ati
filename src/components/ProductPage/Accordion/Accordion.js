@@ -78,7 +78,7 @@ const Accordion = ({ product }) => {
   const sections = getSectionsForProduct(product);
 
   return (
-    <div className="container mt-2 ">
+    <div className="container mt-2">
       <div className="row">
         {sections.map((section, index) => (
           <div key={index} className="col-lg-4 col-12">
