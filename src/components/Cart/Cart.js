@@ -114,8 +114,9 @@ const Cart = () => {
                         </div>
                     ))}
                     <div className="cart-summary">
-                    <p className="total-price">TOTAL <strong>INR {formatPrice(calculateTotal())}</strong></p>
-<p className="taxes-included">ALL TAXES INCLUDED.</p>
+                    <p className="total-price">
+    TOTAL <span className="currency">INR</span> <span className="price">{formatPrice(calculateTotal())}</span>
+</p><p className="taxes-included">ALL TAXES INCLUDED.</p>
 <button className="checkout-button" disabled={cartItems.length === 0}>CHECK OUT</button>
                     </div>
                     <div className="cart-buttons-container">

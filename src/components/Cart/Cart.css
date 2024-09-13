@@ -100,10 +100,21 @@ body, html {
     font-size: 0.85em;
     padding-top: 5px;
     margin-bottom: 0px; /* Decrease font size */
+    display: flex;
+    align-items: center;
+}
+
+.currency {
+    margin-left: auto;
+    padding-left: 5px; 
+}
+.price {
+    margin-left: 5px; /* Add gap between INR and the total price */
 }
 
 .taxes-included {
-    font-size: 0.75em; /* Decrease font size */
+    font-size: 0.60em; /* Decrease font size */
+    text-align: right; /* Ensure text is aligned to the right */
 }
 
 .checkout-button {
