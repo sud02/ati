@@ -12,7 +12,7 @@ const SignupForm = () => {
     event.preventDefault();
     
     try {
-      const response = await fetch('https://backenddeploy-e6898dc34696.herokuapp.com/signup', {
+      const response = await fetch('https://backend-ati-81lf.onrender.com/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
