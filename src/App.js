@@ -18,6 +18,7 @@ import { CartProvider } from './components/Cart/CartContext';
 import ScrollToTop from './components/ScrollToTop'; // Import ScrollToTop component
 import ExchangePolicy from './pages/ExchangePolicy';
 import Terms from './pages/Terms'; // Import ExchangePolicy
+import Account from './pages/Account';
 
 function App() {
     const [isSideNavOpen, setSideNavOpen] = useState(false);
@@ -97,6 +98,7 @@ function App() {
                     <Route path="/signup" element={<SignupForm />} />
                     <Route path="/ExchnagePolicy" element={<ExchangePolicy />} /> 
                     <Route path="/terms" element={<Terms />} />{/* Add new route */}
+                    <Route path="/account" component={Account} />
                 </Routes>
                 {shouldShowFooter && <Footer />}
             </div>

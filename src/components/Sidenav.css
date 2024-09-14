@@ -11,6 +11,21 @@
     padding-top: 40px; 
 }
 
+
+.logout-btn {
+    margin-top: auto; /* Push the button to the bottom */
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+}
+
+.logout-btn:hover {
+    background-color: #333;
+}
 .side-nav.open {
     left: 0;
 }
