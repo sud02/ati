@@ -36,7 +36,7 @@ const ProductPage = () => {
 
   // Scroll to top when the component is mounted (i.e., when a product page is opened)
   useEffect(() => {
-    window.scrollTo(0, 0);
+    //window.scrollTo(0, 0);
     setNotification({ message: '', visible: false });
   }, [setNotification]);
 
