@@ -19,6 +19,8 @@ import ScrollToTop from './components/ScrollToTop'; // Import ScrollToTop compon
 import ExchangePolicy from './pages/ExchangePolicy';
 import Terms from './pages/Terms'; // Import ExchangePolicy
 import Account from './pages/Account';
+import Checkout from './pages/checkout';
+
 
 function App() {
     const [isSideNavOpen, setSideNavOpen] = useState(false);
@@ -96,6 +98,7 @@ function App() {
                     <Route path="/cart" element={<Cart />} />
                     <Route path="/login" element={<LoginForm />} />
                     <Route path="/signup" element={<SignupForm />} />
+                    <Route path="/checkout" element={<Checkout />} />
                     <Route path="/ExchnagePolicy" element={<ExchangePolicy />} /> 
                     <Route path="/terms" element={<Terms />} />{/* Add new route */}
                     <Route path="/account" component={Account} />
