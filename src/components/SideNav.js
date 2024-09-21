@@ -4,14 +4,12 @@ import './Sidenav.css';
 
 function SideNav({ isOpen, closeSideNav }) {
     const firstName = localStorage.getItem('firstName');
-    const isLoggedIn = !!firstName; // Check if the user is logged in
+    const isLoggedIn = !!firstName;
 
     const handleLogout = () => {
         localStorage.removeItem('firstName');
         closeSideNav();
-        // Optionally, you can redirect to the home page or login page
     };
-
     return (
         <div className={`side-nav ${isOpen ? 'open' : ''}`}>
             <div className="side-nav-content">
@@ -27,9 +25,6 @@ function SideNav({ isOpen, closeSideNav }) {
                 
                 <ul>
                     <li>
-                        <Link to="/shop-all" onClick={closeSideNav}>Shop All</Link>
-                    </li>
-                    <li>
                         <Link to="/contact-us" onClick={closeSideNav}>Contact Us</Link>
                     </li>
                     <li>
@@ -37,7 +32,7 @@ function SideNav({ isOpen, closeSideNav }) {
                     </li>
                     {isLoggedIn && (
                         <li>
-                            <Link to="/account" onClick={closeSideNav}>Account</Link>
+                            <Link to="/order" onClick={closeSideNav}>Order History</Link>
                         </li>
                     )}
                 </ul>
