@@ -131,3 +131,19 @@
   color: black;
   border-color: black;
 }
+.button-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.button-wrapper .overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.9rem;
+  border-radius: 0.2rem;
+  pointer-events: none; /* Prevent interaction with the overlay */
+}

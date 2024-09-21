@@ -25,7 +25,7 @@ const ButtonGroup = ({ sizes = [], sizeChart = [], onBuyNow, onAddToCart }) => {
         setMessage('Please select a size.');
         setTimeout(() => {
           setMessage(null);
-        }, 3000); // Hide message after 5 seconds
+        }, 3000); // Hide message after 3 seconds
       } else {
         onAddToCart(activeSize);
       }
@@ -106,20 +106,28 @@ const ButtonGroup = ({ sizes = [], sizeChart = [], onBuyNow, onAddToCart }) => {
       <div className="container mt-2 mb-2">
         <div className="row d-flex justify-content-center">
           <div className="col-12 col-md-auto d-grid mb-2 mb-md-0">
-            <button
-              className={`btn btn-dark btn-custom-lg btn-d w-100 ${clickedButton === 'buyNow' ? 'btn-clicked' : ''}`}
-              onClick={() => handleButtonClick('buyNow')}
-            >
-              BUY NOW
-            </button>
+            <div className="button-wrapper">
+              <button
+                className={`btn btn-dark btn-custom-lg btn-d w-100 ${clickedButton === 'buyNow' ? 'btn-clicked' : ''}`}
+                onClick={() => handleButtonClick('buyNow')}
+                disabled
+              >
+                BUY NOW
+              </button>
+              <div className="overlay">Live Soon</div>
+            </div>
           </div>
           <div className="col-12 col-md-auto d-grid">
-            <button
-              className={`btn btn-light btn-custom-lg btn-od w-100 ${clickedButton === 'addToCart' ? 'btn-clicked' : ''}`}
-              onClick={() => handleButtonClick('addToCart')}
-            >
-              ADD TO CART
-            </button>
+            <div className="button-wrapper">
+              <button
+                className={`btn btn-light btn-custom-lg btn-od w-100 ${clickedButton === 'addToCart' ? 'btn-clicked' : ''}`}
+                onClick={() => handleButtonClick('addToCart')}
+                disabled
+              >
+                ADD TO CART
+              </button>
+              <div className="overlay">Live Soon</div>
+            </div>
           </div>
         </div>
       </div>
