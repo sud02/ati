@@ -9,7 +9,7 @@ header {
     top: 0;
     height: 60px;
     width: 100%;
-    z-index: 1001;
+    z-index: 998;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;

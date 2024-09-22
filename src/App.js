@@ -20,6 +20,7 @@ import ExchangePolicy from './pages/ExchangePolicy';
 import Terms from './pages/Terms'; // Import ExchangePolicy
 import Account from './pages/Account';
 import Checkout from './pages/checkout';
+import ShrinkHeader from './components/Header/ShrinkHeader';
 
 
 function App() {
@@ -38,9 +39,8 @@ function App() {
 
     const handleScroll = () => {
         const header = headerRef.current;
-        const heroText = heroTextRef.current;
         const threshold = header ? header.offsetHeight : 0;
-
+        
         if (header) {
             if (window.scrollY > threshold) {
                 header.classList.add('visible');
@@ -50,7 +50,8 @@ function App() {
                 header.classList.add('pre-scroll');
             }
         }
-
+        
+        const heroText = heroTextRef.current;
         if (heroText) {
             if (window.scrollY >= threshold) {
                 heroText.classList.add('sticky');
@@ -81,7 +82,12 @@ function App() {
             <ScrollToTop /> {/* Add ScrollToTop to ensure every page starts from the top */}
             <div className="App">
                 {location.pathname === '/' ? (
-                    <Header toggleSideNav={toggleSideNav} ref={headerRef} />
+                    <>
+                        <ShrinkHeader />
+                       <Header toggleSideNav={toggleSideNav} ref={headerRef} /> 
+                       
+                    </>
+                    
                 ) : (
                     <HeaderAll toggleSideNav={toggleSideNav} ref={headerRef} /> // Use HeaderAll for non-home pages
                 )}
