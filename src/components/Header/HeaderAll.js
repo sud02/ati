@@ -1,10 +1,15 @@
-import React, { forwardRef, useContext } from 'react';
+import React, { forwardRef, useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
-import './headerAll.css'; // Updated to use a separate CSS file for HeaderAll
+import './headerAll.css'; 
 import { CartContext } from '../Cart/CartContext';
 
 const HeaderAll = forwardRef(({ toggleSideNav }, ref) => {
     const { cartItems } = useContext(CartContext);
+    const [showSearch, setShowSearch] = useState(false);
+
+    const toggleSearchDropdown = () => {
+        setShowSearch(!showSearch);
+    };
 
     return (
         <header className="header-all-custom" ref={ref}>
@@ -15,7 +20,6 @@ const HeaderAll = forwardRef(({ toggleSideNav }, ref) => {
             </div>
             <div className="header-links-custom">
                 <ul>
-                   
                     <li><Link to="/contact-us">Contact Us</Link></li>
                     <li><Link to="/track-order">Track your order</Link></li>
                 </ul>
@@ -24,7 +28,14 @@ const HeaderAll = forwardRef(({ toggleSideNav }, ref) => {
                 <Link to="/">ATNATIC</Link>
             </div>
             <div className="header-icons-custom">
-                <Link to="/search"><img src="/Static/Symbols/magnifying-glass.png" alt="Search" /></Link>
+                <div onClick={toggleSearchDropdown} className="search-icon-custom">
+                    <img src="/Static/Symbols/magnifying-glass.png" alt="Search" />
+                </div>
+                {showSearch && (
+                    <div className="search-dropdown-custom">
+                        <textarea placeholder="Search..." />
+                    </div>
+                )}
                 <div className="cart-icon-container">
                     <Link to="/cart">
                         <img src="/Static/Symbols/shopping-bag.png" alt="Cart" />
