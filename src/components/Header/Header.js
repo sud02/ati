@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { CartContext } from '../Cart/CartContext';
 import './Header.css';
 
-
 const Header = forwardRef(({ toggleSideNav }, ref) => {
     const { cartItems } = useContext(CartContext);
     const [showSearch, setShowSearch] = useState(false);
@@ -21,8 +20,7 @@ const Header = forwardRef(({ toggleSideNav }, ref) => {
             </div>
             <div className="header-title">
                 <Link to="/">
-                    {/* <h1>ATNATIC</h1> */}
-                    
+                    <h1>ATNATIC</h1>
                 </Link>
             </div>
             <div className="header-links">
