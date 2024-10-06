@@ -28,7 +28,7 @@ function SideNav({ isOpen, closeSideNav }) {
             <div className="side-nav-content">
                 <ul>
                     <li>
-                        <Link to="/contact-us" onClick={closeSideNav}>CONTACT US</Link>
+                        <Link to="/contact" onClick={closeSideNav}>CONTACT US</Link>
                     </li>
                     <li>
                         <Link to="/track-order" onClick={closeSideNav}>TRACK ORDER</Link>

@@ -21,6 +21,7 @@ import Terms from './pages/Terms';
 import Account from './pages/Account';
 import Checkout from './pages/checkout';
 import ExchangeRequestForm from './components/ExchangeRequestForm';
+import Contact from './components/Contact';
 
 
 function App() {
@@ -104,6 +105,7 @@ function App() {
                     <Route path="/terms" element={<Terms />} />{/* Add new route */}
                     <Route path="/account" component={Account} />
                     <Route path="/exchange" element={<ExchangeRequestForm />} />
+                    <Route path="/contact" element={<Contact />} />
                 </Routes>
                 {shouldShowFooter && <Footer />}
             </div>
