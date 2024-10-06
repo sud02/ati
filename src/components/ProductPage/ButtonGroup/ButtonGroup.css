@@ -27,8 +27,8 @@
   }
   
   .btn-light {
-    border-color: rgb(205, 205, 205);
-    color: rgb(205, 205, 205);
+    border-color: rgb(110, 110, 110);
+    color: rgb(110, 110, 110);
   }
   
   .btn-group {
@@ -73,14 +73,14 @@
   
   .btn-custom-lg {
     padding: .75rem .75rem; /* Sets padding inside the button to 0.75rem on all sides */
-    font-size: 1rem; /* Sets the font size inside the button to 1rem */
+    font-size: 0.65rem; /* Sets the font size inside the button to 1rem */
   }
   
   @media (min-width: 768px) {
     .btn-custom-lg {
       padding: 1rem 1rem; /* Increases the padding to 1rem on all sides */
       width: 250px !important; /* Sets the button width to 250px, overriding any other width styles */
-      font-size: 1rem; /* Keeps the font size at 1rem */
+      font-size: 0.5rem; /* Keeps the font size at 1rem */
     }
   }
   
