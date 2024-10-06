@@ -171,8 +171,15 @@ header {
     filter: brightness(0) invert(1); /* Change icon color */
 }
 
-  .input-container {
+
+
+
+
+
+/*     search box css     */
+  .input-container  {
     position: relative;
+    border-radius: 0.5px !important;
 }
 
 .input-container .big-screen {
@@ -183,7 +190,7 @@ header {
 
 .close-button {
     position: absolute;
-    right: 0.5px; /* Adjust as needed */
+    right: 2.5px; /* Adjust as needed */
     top: 50%;
     transform: translateY(-50%);
     border: none;
@@ -192,3 +199,22 @@ header {
     cursor: pointer;
 }
 
+
+@media (max-width: 768px) {
+  .search-dropdown{
+    position: absolute;
+    top: 200%;
+    /* right: 65%; */
+    width: 350px !important;
+    
+    
+    
+
+  }
+  .input-container .small-screen{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2.5px;
+  }
+}
