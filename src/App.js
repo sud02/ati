@@ -20,6 +20,7 @@ import ExchangePolicy from './pages/ExchangePolicy';
 import Terms from './pages/Terms'; 
 import Account from './pages/Account';
 import Checkout from './pages/checkout';
+import ExchangeRequestForm from './components/ExchangeRequestForm';
 
 
 function App() {
@@ -102,6 +103,7 @@ function App() {
                     <Route path="/ExchnagePolicy" element={<ExchangePolicy />} /> 
                     <Route path="/terms" element={<Terms />} />{/* Add new route */}
                     <Route path="/account" component={Account} />
+                    <Route path="/exchange" element={<ExchangeRequestForm />} />
                 </Routes>
                 {shouldShowFooter && <Footer />}
             </div>

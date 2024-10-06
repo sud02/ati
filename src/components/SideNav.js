@@ -10,9 +10,10 @@ function SideNav({ isOpen, closeSideNav }) {
         localStorage.removeItem('firstName');
         closeSideNav();
     };
+
     return (
         <div className={`side-nav ${isOpen ? 'open' : ''}`}>
-            <div className="side-nav-content">
+            <div className="side-nav-header">
                 <button 
                     className="close-btn" 
                     onClick={closeSideNav} 
@@ -22,17 +23,19 @@ function SideNav({ isOpen, closeSideNav }) {
                 </button>
                 
                 {firstName && <div className="user-greeting">Hello, {firstName}!</div>}
-                
+            </div>
+            
+            <div className="side-nav-content">
                 <ul>
                     <li>
-                        <Link to="/contact-us" onClick={closeSideNav}>Contact Us</Link>
+                        <Link to="/contact-us" onClick={closeSideNav}>CONTACT US</Link>
                     </li>
                     <li>
-                        <Link to="/track-order" onClick={closeSideNav}>Track Order</Link>
+                        <Link to="/track-order" onClick={closeSideNav}>TRACK ORDER</Link>
                     </li>
                     {isLoggedIn && (
                         <li>
-                            <Link to="/order" onClick={closeSideNav}>Order History</Link>
+                            <Link to="/order" onClick={closeSideNav}>ORDER HISTORY</Link>
                         </li>
                     )}
                 </ul>

@@ -8,7 +8,6 @@
     box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
     transition: left 0.3s ease;
     z-index: 1500;
-    padding-top: 40px; 
     display: flex;
     flex-direction: column;
 }
@@ -17,12 +16,44 @@
     left: 0;
 }
 
+.side-nav-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Use space-between to push items to edges */
+    padding: 10px 20px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    background-color: white;
+    z-index: 1501;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 32px;
+    color: #000;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1500;
+}
+
+
+.user-greeting {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-left: 15px; /* Space between the close button and greeting */
+    margin-top: 6px; /* Added margin to move the greeting down */
+}
+
+
 .side-nav-content {
     display: flex;
     flex-direction: column;
     height: 100%;
-    padding: 20px;
-    padding-top: 60px; 
+    padding: 20px;           
+    padding-top: 80px;      
 }
 
 .side-nav ul {
@@ -36,49 +67,27 @@
 
 .side-nav li a {
     text-decoration: none;
-    font-size: 16px; /* Decreased font size */
+    font-size: 16px;
     color: #333;
-}
-
-.user-greeting {
-    font-size: 20px;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 20px;
-    margin-top: -30px; /* Move the greeting message up */
-    text-align: left; /* Align text to the left */
 }
 
 .logout-btn {
     background-color: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
-    border: 1px solid rgb(0, 0, 0); /* Added black border */
-    padding: 5px 10px; /* Decreased padding */
-    font-size: 14px; /* Decreased font size */
+    border: 1px solid rgb(0, 0, 0);
+    padding: 5px 10px;
+    font-size: 14px;
     cursor: pointer;
     text-align: center;
-    width: 230px; /* Increased width */
+    width: 230px;
     position: absolute;
     bottom: 30px;
-    left: 50%; /* Center horizontally */
-    transform: translateX(-50%); /* Adjust position to center */
+    left: 50%;
+    transform: translateX(-50%);
     border-radius: 2px;
 }
 
 .logout-btn:hover {
     background-color: #333;
-    color: #fff; /* Change text color on hover for better contrast */
-}
-
-.close-btn {
-    position: absolute;
-    top: 5px; 
-    left: 25px; 
-    background: none;
-    border: none;
-    font-size: 32px; 
-    color: #000; 
-    cursor: pointer;
-    z-index: 1500;
-    padding: 0;
+    color: #fff;
 }

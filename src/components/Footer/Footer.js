@@ -11,8 +11,7 @@ const Footer = () => {
                         <h4>HELP</h4>
                         <ul>
                             <li><a href="/Login">MEMBERS LOGIN</a></li>
-                            <li><a href="/Exchnage">PLACE AN EXCHANGE/RETURN REQUEST</a></li>
-                            <li><a href="/Contact">CONTACT US</a></li>
+                            <li><a href="/exchange">PLACE AN EXCHANGE/RETURN REQUEST</a></li>                            <li><a href="/Contact">CONTACT US</a></li>
                         </ul>
                     </div>
                     <div className="footer-section">

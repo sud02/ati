@@ -20,8 +20,8 @@ const Header = forwardRef(({ toggleSideNav }, ref) => {
             <div className="header-links">
                 <ul>
                     
-                    <li><Link to="/contact-us">Contact Us</Link></li>
-                    <li><Link to="/track-order">Track your order</Link></li>
+                    <li><Link to="/contact-us">CONTACT US</Link></li>
+                    <li><Link to="/track-order">TRACK ORDER</Link></li>
                 </ul>
             </div>
             <div className="header-icons">
