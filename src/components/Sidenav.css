@@ -40,9 +40,10 @@
 
 
 .user-greeting {
-    font-size: 17px;
+    font-size: 20px;
     font-weight: bold;
     color: #333;
+    margin-left: 15px; /* Space between the close button and greeting */
     margin-top: 6px; /* Added margin to move the greeting down */
 }
 
@@ -66,7 +67,7 @@
 
 .side-nav li a {
     text-decoration: none;
-    font-size: 13px;
+    font-size: 16px;
     color: #333;
 }
 

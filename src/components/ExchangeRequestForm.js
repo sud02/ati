@@ -15,13 +15,12 @@ const ExchangeRequestForm = () => {
     setLoading(true);
 
     const templateParams = {
-      order_id: orderId,     // Sends the Order ID
-      user_email: contact,   // User's email or phone as input
-      message: issue,        // The message or issue details
+      order_id: orderId,
+      contact: contact,
+      issue: issue,
     };
 
-    // Send email using EmailJS
-    emailjs.send('service_kb2jlmp', 'template_3fhjcwn', templateParams, 'n_MpKV4J9xGz7_ozd')
+    emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams, 'YOUR_USER_ID')
       .then((response) => {
         setLoading(false);
         setSuccessMessage('Your request has been sent successfully!');
@@ -34,7 +33,7 @@ const ExchangeRequestForm = () => {
         console.log('FAILED...', err);
       });
 
-    // Clear the form after submission
+    // Clear the form
     setOrderId('');
     setContact('');
     setIssue('');
