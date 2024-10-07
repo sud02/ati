@@ -1,7 +1,7 @@
 /* Import HelveticaWorld-Regular font */
 @font-face {
   font-family: "HelveticaWorld";
-  src: url("/Static/Fonts/HelveticaWorld-Regular.ttf") format("truetype");
+  src: url("/assets/fonts/HelveticaWorld-Regular.ttf") format("truetype");
 }
 
 /* General Styles */
@@ -232,7 +232,6 @@ header.visible .menu-toggle span {
   font-family: "GrenobleSerial-Xbold-Medium";
   src: url("/Static/Fonts/GrenobleSerial-Xbold-Medium.woff2") format("woff2"),
        url("/Static/Fonts/GrenobleSerial-Xbold-Medium.woff") format("woff"),
-       url("/Static/Fonts/Grenoble\ Serial\ Medium.ttf") format("truetype");
 }
 
 h1 {
