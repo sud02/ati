@@ -16,7 +16,7 @@ const HeaderAll = forwardRef(({ toggleSideNav }, ref) => {
             <div className="header-links-custom">
                 <ul>
                    
-                    <li><Link to="/contact">CONTACT US</Link></li>
+                    <li><Link to="/contact-us">CONTACT US</Link></li>
                     <li><Link to="/track-order">TRACK ORDER</Link></li>
                 </ul>
             </div>
