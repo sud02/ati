@@ -8,14 +8,22 @@
 .toggle-icon {
     font-size: 1.25rem;
 }
+.btn-font{
+    font-size: 14px !important;
+}
 
 .card-header {
     background-color: #ffffff;
     cursor: pointer;
+    border-color: transparent !important;
 }
 
 .card {
-    border-color: transparent !important;
+    border-color: rgb(125, 125, 125) !important;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-radius: 0;
 }
 
 .card-header:hover {
@@ -28,8 +36,11 @@
 
 .collapse.show .toggle-icon {
     content: "-";
+   
 }
 
 .collapse:not(.show) .toggle-icon {
     content: "+";
+
 }
+

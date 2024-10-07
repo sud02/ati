@@ -1,18 +1,20 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { CartContext } from '../Cart/CartContext';
 import ProductCarousel from './Carousel/ProductCarousel';
 import MobileSlider from './MobileSlider/MobileSlider';
 import ProductDetails from './ProductDetails/ProductDetails';
 import ButtonGroup from './ButtonGroup/ButtonGroup';
 import Accordion from './Accordion/Accordion';
+import Notification from '../Notification/Notification';
+import './ProductPage.css';
 
-// Sample product data
 const products = [
-  { id: 1, name: 'FIRE T-SHIRT', description: 'Description for FIRE T-SHIRT', images: ['/Static/ProductImgs/FIRE.jpg', '/Static/ProductImgs/FIRE.jpg', '/Static/ProductImgs/FIRE.jpg', '/Static/ProductImgs/FIRE.jpg'], price: 1999 },
+  { id: 1, name: 'FIRE T-SHIRT', description: 'Description for FIRE T-SHIRT', images: ['/Static/ProductImgs/FIRE.jpg', '/Static/ProductImgs/FIRE.jpg', '/Static/ProductImgs/FIRE.jpg', '/Static/ProductImgs/FIRE.jpg'], price: 1999  },
   { id: 2, name: 'FLORAL T-SHIRT', description: 'Description for FLORAL T-SHIRT', images: ['/Static/ProductImgs/FLORAL.jpg', '/Static/ProductImgs/FLORAL.jpg', '/Static/ProductImgs/FLORAL.jpg', '/Static/ProductImgs/FLORAL.jpg'], price: 1999 },
   { id: 3, name: 'LITM T-SHIRT', description: 'Description for LITM T-SHIRT', images: ['/Static/ProductImgs/LIVE.jpg', '/Static/ProductImgs/LIVE.jpg', '/Static/ProductImgs/LIVE.jpg', '/Static/ProductImgs/LIVE.jpg'], price: 1999 },
   { id: 4, name: 'PIGEON T-SHIRT', description: 'Description for PIGEON T-SHIRT', images: ['/Static/ProductImgs/PIGEON.jpg', '/Static/ProductImgs/PIGEON.jpg', '/Static/ProductImgs/PIGEON.jpg', '/Static/ProductImgs/PIGEON.jpg'], price: 1999 },
 ];
-
 const sizes = ['XS', 'S', 'M', 'L', 'XL'];
 
 const sizeChart = [
@@ -23,18 +25,26 @@ const sizeChart = [
   { size: 'XL', chest: 44, waist: 36, length: 31 },
 ];
 
-const handleBuyNow = () => {
-  // Implement buy now functionality
-};
-
-const handleAddToCart = () => {
-  // Implement add to cart functionality
-};
-
 const ProductPage = () => {
-  const product = products[0]; // Select the first product for demonstration
+  const { id } = useParams();
+  const { addToCart, notification, closeNotification, setNotification } = useContext(CartContext);
+  const product = products.find((p) => p.id === parseInt(id));
+
+  useEffect(() => {
+    document.title = product.name;
+  }, [product.name]);
+
+  // Scroll to top when the component is mounted (i.e., when a product page is opened)
+  useEffect(() => {
+    //window.scrollTo(0, 0);
+    setNotification({ message: '', visible: false });
+  }, [setNotification]);
 
   if (!product) return <div>Product not found</div>;
+
+  const handleAddToCart = (size) => {
+    addToCart(product, size);
+  };
 
   return (
     <div className="product-page">
@@ -43,11 +53,11 @@ const ProductPage = () => {
       <ProductDetails product={product} />
       <ButtonGroup 
         sizes={sizes} 
-        sizeChart={sizeChart} 
-        onBuyNow={handleBuyNow} 
-        onAddToCart={handleAddToCart} 
+        sizeChart={sizeChart}
+        onAddToCart={(size) => handleAddToCart(size)}
       />
       <Accordion product={product} />
+      <Notification message={notification.message} visible={notification.visible} onClose={closeNotification} />
     </div>
   );
 };

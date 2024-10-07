@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'YourCustomFont';
-  src: url('/public/Static/Fonts/FontsFree-Net-MB-Empire-W01-Bold.ttf') format('opentype');
+  src: url('/Static/Fonts/FontsFree-Net-MB-Empire-W01-Bold.ttf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
@@ -61,20 +61,24 @@
   justify-content: flex-start;
   padding-top: 0px;
 }
-
 .card-content h3 {
   font-size: 12px;
-  margin-bottom: 0px;
+  margin-top: 5px; /* Adjusted value */
   font-family: 'YourCustomFont', sans-serif;
-  margin: 10px;
   color: #353535;
+  text-align: left;
+  padding-left: 2px;
+  
 }
 
 .card-content p {
   font-size: 12px;
-  margin: 0.2px;
-  color: #707070;
+  color: #353535;
   font-family: 'YourCustomFont', sans-serif;
+  text-align: left;
+  margin-top: -5px; 
+  margin-bottom: 9px; 
+  padding-left: 2px;
 }
 
 @media (max-width: 1024px) {
@@ -88,7 +92,7 @@
   .product-card {
     flex: 1 1 calc(50% - 2px);
     max-width: calc(50% - 2px);
-    margin-bottom: 6px;
+    margin-bottom: 2px; /* Decreased gap */
   }
 
   .card-image {
@@ -100,10 +104,35 @@
   .product-card {
     flex: 1 1 calc(50% - 2px);
     max-width: calc(50% - 2px);
-    margin-bottom: 6px;
+    margin-bottom: 2px; /* Decreased gap */
   }
 
   .card-image {
     aspect-ratio: 1182/1600;
   }
+  .card-content {
+    height: auto; /* Adjust height for mobile view */
+    padding-bottom: 0px; /* Remove bottom padding */
+  }
+}
+@keyframes fadeInFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.product-card {
+  opacity: 0; /* Initially hidden */
+  transform: translateY(-20px); /* Slightly move up */
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.product-card.visible {
+  opacity: 1;
+  transform: translateY(0);
 }

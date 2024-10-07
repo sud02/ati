@@ -1,0 +1,28 @@
+.account-container {
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.account-info p, .order-history p {
+    margin: 10px 0;
+}
+
+.order-history ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.order-history li {
+    background-color: #333;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+}
+
+.order-history li p {
+    margin: 5px 0;
+}

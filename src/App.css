@@ -1,129 +1,65 @@
+/* Import HelveticaWorld-Regular font */
+@font-face {
+  font-family: "HelveticaWorld";
+  src: url("/Static/Fonts/HelveticaWorld-Regular.ttf") format("truetype");
+}
+
 /* General Styles */
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: "HelveticaWorld", sans-serif; /* Apply HelveticaWorld font */
   background-color: #f5f5f5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 h1, h2, h3, p {
-  font-family: "GrenobleSerial-Xbold-Regular", sans-serif;
   font-weight: normal;
 }
 
-/* Header Styles */
-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 25px;
-  background-color: #fff;
-  position: fixed;
-  top: 0;
-  height: 70px;
-  width: 100%;
-  z-index: 1001;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-  user-select: none;
-}
-header.visible {
-  opacity: 1;
-  visibility: visible;
-}
-header.pre-scroll {
-  background-color: rgba(0, 0, 0, 0);
-  visibility: visible;
-  opacity: 1;
-  color: #fff;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-header.pre-scroll .menu-toggle span,
-header.visible .menu-toggle span {
-  background-color: white;
-}
-header.pre-scroll .header-links ul li a {
-  color: #fff;
-}
-header.pre-scroll .header-icons a img {
-  filter: brightness(0) invert(1);
-}
-header.visible .menu-toggle span {
-  background-color: black; 
+
+.header-logo {
+  font-family: "GrenobleSerial-Xbold-Medium", sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  color: black;
+  margin: 0 auto;
 }
 
-.header-links {
-  display: flex;
-  gap: 30px;
-  flex: 1;
-  justify-content: flex-start;
-  padding-left: 40px;
-}
-.header-links ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  gap: 30px;
-}
-.header-links ul li a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 400;
-  font-size: 14px;
+
+
+@media (max-width: 480px) {
+  .hero-section {
+    padding-top: 55px;
+  }
 }
 
-.header-icons {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  justify-content: flex-end;
-  flex: 1;
-  padding-right: 10px;
-  position: fixed;
-  top: 20px;
-  right: 5px;
-  z-index: 1000;
-}
-.header-icons a img {
-  width: 23px;
-  height: 23px;
-}
+@media (max-width: 768px) {
 
+  .hero-section {
+    padding-top: 60px;
+  }
+}
+/* Mobile Menu Toggle */
 .menu-toggle {
   display: none;
   flex-direction: column;
   cursor: pointer;
   gap: 4px;
 }
+
 .menu-toggle span {
   width: 24px;
   height: 2px;
   background-color: rgba(0, 0, 0, 0.6);
   transition: background-color 0.3s ease;
 }
+
 .menu-toggle:hover span {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-/* Mobile Specific Styles */
-@media (max-width: 768px) {
-  .header-links {
-    display: none;
-  }
-  .menu-toggle {
-    display: flex;
-  }
-  .hero-section {
-    padding-top: 60px;
-  }
-}
-@media (max-width: 480px) {
-  .hero-section {
-    padding-top: 55px;
-  }
-}
+
 
 /* Hero Section */
 .hero-section {
@@ -144,7 +80,6 @@ header.visible .menu-toggle span {
   width: 100vw;
   height: 100vh;
   z-index: 0;
-  
 }
 
 /* Hero Video */
@@ -157,103 +92,19 @@ header.visible .menu-toggle span {
   pointer-events: none;
 }
 
-@media (max-width: 768px) {
-  .hero-section {
-    height: 100vh;
-    padding-top: 40px;
-  }
-  .video-container,
-  .hero-video {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-  }
-  .hero-video::-webkit-media-controls {
-    display: none !important;
-  }
-}
-
-@media (min-width: 769px) {
-  .hero-section {
-    height: 100vh;
-  }
-  .video-container {
-    height: 100vh;
-    width: 100vw;
-  }
-  .hero-video {
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-    object-position: center center;
-  }
-  .hero-video::-webkit-media-controls {
-    display: none !important;
-  }
-}
-
-.scroll-symbol {
-  position: absolute;
-  bottom: 1%;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-  color: #fff;
-  font-size: 1.5rem;
-  font-weight: bold;
-  z-index: 2;
-}
-
-.hero-scroll {
-  position: absolute;
-  top: 35%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 6rem;
-  font-weight: bold;
-  transition: transform 0.7s ease, font-size 0.7s ease, top 0.7s ease, color 0.7s ease;
-  z-index: 2;
-  color: rgba(255, 255, 255, 0.3);
-  letter-spacing: 0.5px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-  -webkit-text-stroke: 0.5px transparent;
-  text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.1);
-}
-
-@-webkit-keyframes keyarm {
-  0% { -webkit-transform: rotate(0deg); }
-  5% { -webkit-transform: rotate(-14deg); }
-  10% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(0deg); }
-}
-
-@keyframes keyarm {
-  0% { transform: rotate(0deg); }
-  5% { transform: rotate(-14deg); }
-  10% { transform: rotate(0deg); }
-  100% { transform: rotate(0deg); }
-}
-
-.sticky {
-  position: fixed;
-  top: 5%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 2rem;
-  color: #000;
-  z-index: 1001;
-  transition: top 0.7s ease, font-size 0.7s ease, color 0.7s ease;
-  user-select: none;
-  -webkit-animation: keyarm 1.5s ease-in-out infinite;
-  animation: keyarm 1.5s ease-in-out infinite;
-}
-
 /* Font Face */
 @font-face {
+  font-family: "GrenobleSerial-Xbold-Regular";
+  src: url("/Static/Fonts/GrenobleSerial-Xbold-Regular.woff2") format("woff2"),
+       url("/Static/Fonts/GrenobleSerial-Xbold-Regular.woff") format("woff"),
+       url("/Static/Fonts/GrenobleSerial-Xbold-Regular.ttf") format("truetype");
+}
+
+@font-face {
   font-family: "GrenobleSerial-Xbold-Medium";
-  src: url("/public/Static/Fonts/Grenoble Serial Medium.ttf") format("truetype");
+  src: url("/Static/Fonts/GrenobleSerial-Xbold-Medium.woff2") format("woff2"),
+       url("/Static/Fonts/GrenobleSerial-Xbold-Medium.woff") format("woff"),
+       url("/Static/Fonts/Grenoble\ Serial\ Medium.ttf") format("truetype");
 }
 
 h1 {
@@ -282,5 +133,13 @@ h1 {
   .hero-section {
     padding-top: 50px;
     height: 85vh;
+  }
+}
+/* Adjustments for iPhone 14 Pro Max */
+@media screen and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) {
+  .header-title {
+    position: static;
+    transform: none;
+    padding-top: 5px;
   }
 }

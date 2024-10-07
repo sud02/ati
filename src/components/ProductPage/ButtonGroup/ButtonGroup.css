@@ -27,8 +27,8 @@
   }
   
   .btn-light {
-    border-color: rgb(205, 205, 205);
-    color: rgb(205, 205, 205);
+    border-color: rgb(110, 110, 110);
+    color: rgb(110, 110, 110);
   }
   
   .btn-group {
@@ -73,14 +73,14 @@
   
   .btn-custom-lg {
     padding: .75rem .75rem; /* Sets padding inside the button to 0.75rem on all sides */
-    font-size: 1rem; /* Sets the font size inside the button to 1rem */
+    font-size: 0.65rem; /* Sets the font size inside the button to 1rem */
   }
   
   @media (min-width: 768px) {
     .btn-custom-lg {
       padding: 1rem 1rem; /* Increases the padding to 1rem on all sides */
       width: 250px !important; /* Sets the button width to 250px, overriding any other width styles */
-      font-size: 1rem; /* Keeps the font size at 1rem */
+      font-size: 0.5rem; /* Keeps the font size at 1rem */
     }
   }
   
@@ -95,3 +95,55 @@
     top: 200px;
   }
   
+
+  /* Add the clicked effect */
+.btn-clicked {
+  animation: clickEffect 0.3s ease-in-out;
+}
+
+@keyframes clickEffect {
+  0% {
+    transform: scale(1);
+     /*background-color: #2a2a2a; /* Dark background on click */
+    color: white; /* Light text color on click */
+  }
+  50% {
+    transform: scale(0.93); /* Slightly shrink the button */
+  }
+  100% {
+    transform: scale(1);
+     /*background-color: transparent; /* Revert background */
+    color: black; /* Revert text color */
+  }
+}
+
+
+.btn-d,.btn-d:hover{
+  background-color: black !important; /* Keep original background */
+  color: white !important; /* Keep original text color */
+  border-color: black !important; /* Keep original border color */
+
+
+}
+
+.btn-od,.btn-od:hover{
+  background-color: white;
+  color: black;
+  border-color: black;
+}
+.button-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.button-wrapper .overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.9rem;
+  border-radius: 0.2rem;
+  pointer-events: none; /* Prevent interaction with the overlay */
+}

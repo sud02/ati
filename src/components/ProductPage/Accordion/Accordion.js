@@ -13,67 +13,84 @@ const Accordion = ({ product }) => {
       case 1: // FIRE T-SHIRT
         return [
           {
-            title: 'Product Details',
+            title: 'PRODUCT DETAILS',
             content: ['Detail about FIRE T-SHIRT 1', 'Detail about FIRE T-SHIRT 2']
           },
           {
-            title: 'Description',
+            title: 'DESCRIPTION',
             content: 'This is a description of the FIRE T-SHIRT.'
           },
           {
-            title: 'Return and Exchange Policy',
+            title: 'RETURN AND EXCHANGE POLICY',
             content: ['Policy for FIRE T-SHIRT 1', 'Policy for FIRE T-SHIRT 2']
+          },
+          {
+            title: 'CARE AND MAINTENANCE',
+            content: ['Do not Iron on print', 'Wash inside out', 'Do not bleach', 'Wash cold']
           }
         ];
       case 2: // FLORAL T-SHIRT
         return [
           {
-            title: 'Product Details',
+            title: 'PRODUCT DETAILS',
             content: ['Detail about FLORAL T-SHIRT 1', 'Detail about FLORAL T-SHIRT 2']
           },
           {
-            title: 'Description',
+            title: 'DESCRIPTION',
             content: 'This is a description of the FLORAL T-SHIRT.'
           },
           {
-            title: 'Return and Exchange Policy',
+            title: 'RETURN AND EXCHANGE POLICY',
             content: ['Policy for FLORAL T-SHIRT 1', 'Policy for FLORAL T-SHIRT 2']
+          },
+          {
+            title: 'CARE AND MAINTENANCE',
+            content: ['Do not Iron on print', 'Wash inside out', 'Do not bleach', 'Wash cold']
           }
         ];
       case 3: // LITM T-SHIRT
         return [
           {
-            title: 'Product Details',
+            title: 'PRODUCT DETAILS',
             content: ['Detail about LITM T-SHIRT 1', 'Detail about LITM T-SHIRT 2']
           },
           {
-            title: 'Description',
+            title: 'DESCRIPTION',
             content: 'This is a description of the LITM T-SHIRT.'
           },
           {
-            title: 'Return and Exchange Policy',
+            title: 'RETURN AND EXCHANGE POLICY',
             content: ['Policy for LITM T-SHIRT 1', 'Policy for LITM T-SHIRT 2']
+          },
+          {
+            title: 'CARE AND MAINTENANCE',
+            content: ['Do not Iron on print', 'Wash inside out', 'Do not bleach', 'Wash cold']
           }
         ];
       case 4: // PIGEON T-SHIRT
         return [
           {
-            title: 'Product Details',
+            title: 'PRODUCT DETAILS',
             content: ['Detail about PIGEON T-SHIRT 1', 'Detail about PIGEON T-SHIRT 2']
           },
           {
-            title: 'Description',
+            title: 'DESCRIPTION',
             content: 'This is a description of the PIGEON T-SHIRT.'
           },
           {
-            title: 'Return and Exchange Policy',
+            title: 'RETURN AND EXCHANGE POLICY',
             content: ['Policy for PIGEON T-SHIRT 1', 'Policy for PIGEON T-SHIRT 2']
+          },
+          {
+            title: 'CARE AND MAINTENANCE',
+            content: ['Do not Iron on print', 'Wash inside out', 'Do not bleach', 'Wash cold']
           }
         ];
       default:
         return [];
     }
   };
+  
 
   const sections = getSectionsForProduct(product);
 
@@ -86,7 +103,7 @@ const Accordion = ({ product }) => {
               <div className="card-header" id={`heading${index}`}>
                 <h5 className="mb-0">
                   <button
-                    className="btn btn-link btn-linkk d-flex justify-content-between align-items-center"
+                    className="btn btn-link btn-linkk d-flex justify-content-between align-items-center btn-font"
                     onClick={() => handleToggle(`collapse${index}`)}
                   >
                     {section.title}
@@ -97,11 +114,11 @@ const Accordion = ({ product }) => {
                 </h5>
               </div>
 
-              <div
-                id={`collapse${index}`}
-                className={`collapse ${openSection === `collapse${index}` ? 'show' : ''}`}
-                aria-labelledby={`heading${index}`}
-              >
+               <div
+                 id={`collapse${index}`}
+                 className={`collapse ${openSection === `collapse${index}` ? 'show' : ''}`}
+                 aria-labelledby={`heading${index}`}
+               >
                 <div className="card-body">
                   {Array.isArray(section.content) ? (
                     <ul className="list-styled">

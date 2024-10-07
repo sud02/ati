@@ -9,6 +9,8 @@
     transition: left 0.3s ease;
     z-index: 1500;
     padding-top: 40px; 
+    display: flex;
+    flex-direction: column;
 }
 
 .side-nav.open {
@@ -16,6 +18,9 @@
 }
 
 .side-nav-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
     padding: 20px;
     padding-top: 60px; 
 }
@@ -31,17 +36,47 @@
 
 .side-nav li a {
     text-decoration: none;
-    font-size: 18px;
+    font-size: 16px; /* Decreased font size */
     color: #333;
+}
+
+.user-greeting {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    margin-top: -30px; /* Move the greeting message up */
+    text-align: left; /* Align text to the left */
+}
+
+.logout-btn {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border: 1px solid rgb(0, 0, 0); /* Added black border */
+    padding: 5px 10px; /* Decreased padding */
+    font-size: 14px; /* Decreased font size */
+    cursor: pointer;
+    text-align: center;
+    width: 230px; /* Increased width */
+    position: absolute;
+    bottom: 30px;
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Adjust position to center */
+    border-radius: 2px;
+}
+
+.logout-btn:hover {
+    background-color: #333;
+    color: #fff; /* Change text color on hover for better contrast */
 }
 
 .close-btn {
     position: absolute;
-    top: 20px; 
-    left: 30px; 
+    top: 5px; 
+    left: 25px; 
     background: none;
     border: none;
-    font-size: 30px; 
+    font-size: 32px; 
     color: #000; 
     cursor: pointer;
     z-index: 1500;
