@@ -4,20 +4,20 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Header from './components/Header/Header';
-import HeaderAll from './components/Header/HeaderAll'; 
+import HeaderAll from './components/Header/HeaderAll'; // Import HeaderAll
 import SideNav from './components/SideNav';
 import HeroSection from './components/HeroSection';
 import ProductSection from './components/ProductSection';
 import ProductPage from './components/ProductPage/ProductPage';
-// import ScrollingText from './components/Footer/ScrollingText';
+import ScrollingText from './components/Footer/ScrollingText';
 import Footer from './components/Footer/Footer';
 import LoginForm from './components/Login/LoginForm';
 import SignupForm from './components/Login/SignupForm';
 import Cart from './components/Cart/Cart';
 import { CartProvider } from './components/Cart/CartContext';
-import ScrollToTop from './components/ScrollToTop';
+import ScrollToTop from './components/ScrollToTop'; // Import ScrollToTop component
 import ExchangePolicy from './pages/ExchangePolicy';
-import Terms from './pages/Terms'; 
+import Terms from './pages/Terms'; // Import ExchangePolicy
 import Account from './pages/Account';
 import Checkout from './pages/checkout';
 import ExchangeRequestForm from './components/ExchangeRequestForm';
@@ -68,24 +68,24 @@ function App() {
         }
         window.addEventListener('scroll', handleScroll);
 
-        
+        // Call handleScroll manually to set the initial state
         handleScroll();
 
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
-    }, [location.pathname]); 
+    }, [location.pathname]); // Add location.pathname as a dependency
 
     const shouldShowFooter = location.pathname !== '/login' && location.pathname !== '/signup' && location.pathname !== '/exchangePolicy';
 
     return (
         <CartProvider>
-            <ScrollToTop /> {}
+            <ScrollToTop /> {/* Add ScrollToTop to ensure every page starts from the top */}
             <div className="App">
                 {location.pathname === '/' ? (
                     <Header toggleSideNav={toggleSideNav} ref={headerRef} />
                 ) : (
-                    <HeaderAll toggleSideNav={toggleSideNav} ref={headerRef} /> 
+                    <HeaderAll toggleSideNav={toggleSideNav} ref={headerRef} /> // Use HeaderAll for non-home pages
                 )}
                 <SideNav isOpen={isSideNavOpen} closeSideNav={closeSideNav} />
                 <Routes>
@@ -93,7 +93,7 @@ function App() {
                         <>
                             <HeroSection ref={heroTextRef} />
                             <ProductSection />
-                            {/* <ScrollingText /> */}
+                            <ScrollingText />
                         </>
                     } />
                     <Route path="/product/:id" element={<ProductPage />} />
