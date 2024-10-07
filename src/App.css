@@ -1,8 +1,11 @@
 /* Import HelveticaWorld-Regular font */
 @font-face {
-  font-family: "HelveticaWorld";
-  src: url("/Static/Fonts/HelveticaWorld-Regular.ttf") format("truetype");
+  font-family: 'HelveticaWorld';
+  src: url('./Static/Fonts/HelveticaWorld-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
+
 
 /* General Styles */
 body {
