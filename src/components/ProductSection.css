@@ -1,9 +1,3 @@
-@font-face {
-  font-family: 'HelveticaWorld';
-  src: url('/Static/Fonts/HelveticaWorld-Regular.ttf') format('truetype'); /* Update path */
-  font-weight: normal;
-  font-style: normal;
-}
 
 .cta-section {
   display: flex;

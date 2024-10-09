@@ -1,7 +1,4 @@
-@font-face {
-    font-family: 'HelveticaWorld';
-    src: url('/Static/Fonts/HelveticaWorld-Regular.ttf') format('truetype');
-}
+
 
 .black-bar {
     background-color: black;
