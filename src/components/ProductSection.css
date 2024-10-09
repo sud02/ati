@@ -1,9 +1,4 @@
-@font-face {
-  font-family: 'YourCustomFont';
-  src: url('/Static/Fonts/FontsFree-Net-MB-Empire-W01-Bold.ttf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-}
+
 
 .cta-section {
   display: flex;

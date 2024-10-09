@@ -1,9 +1,3 @@
-/* src/pages/Terms.css */
-
-@font-face {
-    font-family: 'HelveticaWorld';
-    src: url('/Static/Fonts/HelveticaWorld-Regular.ttf') format('truetype');
-}
 
 .terms-conditions-container {
     max-width: 800px;
