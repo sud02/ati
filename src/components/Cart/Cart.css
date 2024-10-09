@@ -1,4 +1,9 @@
-
+@font-face {
+    font-family: "Helvetica";
+    src: url("/Static/Fonts/Helvetica.woff2") format("woff2"),
+         url("/Static/Fonts/Helvetica.woff") format("woff"),
+         url("/Static/Fonts/Helvetica.ttf") format("truetype");
+}
 
 body, html {
     height: 100%;

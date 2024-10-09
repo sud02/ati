@@ -1,7 +1,9 @@
 /* Import HelveticaWorld-Regular font */
 @font-face {
   font-family: "HelveticaWorld";
-  src: url("/Static/Fonts/HelveticaWorld-Regular.ttf") format("truetype");
+
+  src: url("/assets/fonts/HelveticaWorld-Regular.ttf") format("truetype");
+
 }
 
 
@@ -50,7 +52,8 @@ header.visible {
   left: 50%;
   transform: translateX(-50%);
   bottom: 2px;
-  font-family: "GrenobleSerial-Medium", sans-serif;  font-size: 28px;
+  font-family: "Grenoble", sans-serif; /* Retain original font for Atnatic title */
+  font-size: 28px;
   font-weight: bold;
   color: #000000;
   padding-right: 7.5px;
@@ -220,6 +223,23 @@ header.visible .menu-toggle span {
   pointer-events: none;
 }
 
+/* Font Face */
+@font-face {
+  font-family: "GrenobleSerial-Xbold-Regular";
+  src: url("/Static/Fonts/GrenobleSerial-Xbold-Regular.woff2") format("woff2"),
+       url("/Static/Fonts/GrenobleSerial-Xbold-Regular.woff") format("woff"),
+       url("/Static/Fonts/GrenobleSerial-Xbold-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "GrenobleSerial-Xbold-Medium";
+  src: url("/Static/Fonts/GrenobleSerial-Xbold-Medium.woff2") format("woff2"),
+       url("/Static/Fonts/GrenobleSerial-Xbold-Medium.woff") format("woff"),
+}
+
+h1 {
+  font-family: "GrenobleSerial-Xbold-Medium";
+}
 
 @media screen and (-webkit-min-device-pixel-ratio:5) {
   .sticky {
