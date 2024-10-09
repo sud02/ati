@@ -1,9 +1,6 @@
-/* Import HelveticaWorld-Regular font */
 @font-face {
-  font-family: "HelveticaWorld";
-
-  src: url("/assets/fonts/HelveticaWorld-Regular.ttf") format("truetype");
-
+  font-family: "GrenobleSerial-Medium";
+  src: url("/assets/fonts/Grenoble\ Serial\ Medium.ttf") format("truetype");
 }
 
 
@@ -52,7 +49,7 @@ header.visible {
   left: 50%;
   transform: translateX(-50%);
   bottom: 2px;
-  font-family: "Grenoble", sans-serif; /* Retain original font for Atnatic title */
+  font-family: "GrenobleSerial-Medium", sans-serif;
   font-size: 28px;
   font-weight: bold;
   color: #000000;

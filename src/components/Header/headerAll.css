@@ -1,7 +1,6 @@
-/* Load Helvetica Font */
 @font-face {
-  font-family: "HelveticaWorld";
-  src: url("/Static/Fonts/HelveticaWorld-Regular.ttf") format("truetype");
+  font-family: "GrenobleSerial-Medium";
+  src: url("/assets/fonts/Grenoble\ Serial\ Medium.ttf") format("truetype");
 }
 
 /* General Styles */
@@ -57,7 +56,7 @@ header.header-all-custom {
 }
 
 .header-title-custom {
-  font-family: "HelveticaWorld", sans-serif; /* Change to Helvetica */
+  font-family: "GrenobleSerial-Medium", sans-serif;
   flex: 1;
   text-align: center;
   font-size: 28px;
@@ -70,7 +69,7 @@ header.header-all-custom {
 .header-title-custom a {
   text-decoration: none; /* Remove underline */
   color: inherit; /* Inherit color from parent */
-  font-family: "HelveticaWorld", sans-serif; /* Apply the Helvetica font */
+  font-family: "GrenobleSerial-Medium", sans-serif;
 }
 .header-icons-custom {
   display: flex;
