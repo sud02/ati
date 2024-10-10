@@ -15,9 +15,10 @@ import LoginForm from './components/Login/LoginForm';
 import SignupForm from './components/Login/SignupForm';
 import Cart from './components/Cart/Cart';
 import { CartProvider } from './components/Cart/CartContext';
-import ScrollToTop from './components/ScrollToTop'; // Import ScrollToTop component
+import ScrollToTop from './components/ScrollToTop'; 
 import ExchangePolicy from './pages/ExchangePolicy';
-import Terms from './pages/Terms'; // Import ExchangePolicy
+import Shipping from './pages/Shipping';
+import Terms from './pages/Terms'; 
 import Account from './pages/Account';
 import Checkout from './pages/checkout';
 import ExchangeRequestForm from './pages/ExchangeRequestForm';
@@ -102,8 +103,8 @@ function App() {
                     <Route path="/signup" element={<SignupForm />} />
                     <Route path="/checkout" element={<Checkout />} />
                     <Route path="/ExchnagePolicy" element={<ExchangePolicy />} /> 
-                    <Route path="/terms" element={<Terms />} />{/* Add new route */}
-                    <Route path="/account" component={Account} />
+                    <Route path="/terms" element={<Terms />} />
+                    <Route path="/shipping" element={<Shipping />} />                     <Route path="/account" component={Account} />
                     <Route path="/exchange" element={<ExchangeRequestForm />} />
                      <Route path="/contact" element={<ContactUs />} /> 
                 </Routes>

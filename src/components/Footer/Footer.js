@@ -18,7 +18,7 @@ const Footer = () => {
                         <h4>THE COMPANY</h4>
                         <ul>
                             <li><a href="/ExchnagePolicy">EXCHANGE/RETURNS POLICY</a></li>
-                            <li><a href="/Shipping">SHIPPING</a></li>
+                            <li><a href="/shipping">SHIPPING</a></li>
                             <li><a href="/Terms">TERMS</a></li>
                         </ul>
                     </div>
