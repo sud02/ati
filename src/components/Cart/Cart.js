@@ -12,7 +12,15 @@ const Cart = () => {
 
     useEffect(() => {
         document.title = 'Cart';
+        loadRazorpayScript(); // Load Razorpay script on component mount
     }, []);
+
+    const loadRazorpayScript = () => {
+        const script = document.createElement("script");
+        script.src = "https://checkout.razorpay.com/v1/checkout.js";
+        script.async = true;
+        document.body.appendChild(script);
+    };
 
     const handleQuantityChange = (itemId, size, action) => {
         setCartItems(prevItems =>
@@ -54,6 +62,40 @@ const Cart = () => {
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 2800,
+    };
+
+    const handleCheckout = () => {
+        const totalAmount = calculateTotal();
+        const options = {
+            key: 'YOUR_RAZORPAY_KEY_ID', // Replace with your Razorpay key ID
+            amount: totalAmount * 100, // Amount in paise (₹1 = 100 paise)
+            currency: 'INR',
+            name: 'Atnatic',
+            description: 'Purchase Description',
+            image: 'https://example.com/your-logo.jpg', // Optional: Add your logo URL
+            handler: function (response) {
+                alert(`Payment successful: ${response.razorpay_payment_id}`);
+            },
+            prefill: {
+                name: 'Sudarshan', // Pre-filled name
+                email: 'sudarshan@example.com', // Pre-filled email
+                contact: '9999999999', // Pre-filled contact number
+            },
+            notes: {
+                address: 'Razorpay Corporate Office',
+            },
+            theme: {
+                color: '#000000', 
+                background_color: '#ffffff', 
+            },
+            modal: {
+                backdropclose: false, 
+                escape: false,
+            }
+        };
+
+        const razorpay = new window.Razorpay(options);
+        razorpay.open();
     };
 
     return (
@@ -114,10 +156,11 @@ const Cart = () => {
                         </div>
                     ))}
                     <div className="cart-summary">
-                    <p className="total-price">
-    TOTAL <span className="currency">INR</span> <span className="price">{formatPrice(calculateTotal())}</span>
-</p><p className="taxes-included">ALL TAXES INCLUDED.</p>
-<button className="checkout-button" disabled={cartItems.length === 0}>CHECK OUT</button>
+                        <p className="total-price">
+                            TOTAL <span className="currency">INR</span> <span className="price">{formatPrice(calculateTotal())}</span>
+                        </p>
+                        <p className="taxes-included">ALL TAXES INCLUDED.</p>
+                        <button className="checkout-button" disabled={cartItems.length === 0} onClick={handleCheckout}>CHECK OUT</button>
                     </div>
                     <div className="cart-buttons-container">
                         <Link to="/" className="continue-shopping">CONTINUE SHOPPING</Link>
