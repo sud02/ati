@@ -10,6 +10,40 @@ const ButtonGroup = ({ sizes = [], sizeChart = [], onBuyNow, onAddToCart }) => {
     setActiveSize(size);
   };
 
+  const handleRazorpayPayment = () => {
+    const options = {
+      key: 'YOUR_RAZORPAY_KEY_ID', // Replace with your Razorpay key ID
+      amount: 1999, // Amount in the smallest currency unit (for INR it means 50000 paise = ₹500)
+      currency: 'INR',
+      name: 'Atnatic',
+      description: 'Purchase Description',
+      image: 'https://example.com/your-logo.jpg', // Optional: Add your logo URL
+      handler: function (response) {
+        alert(`Payment successful: ${response.razorpay_payment_id}`);
+        onBuyNow();
+      },
+      prefill: {
+        name: 'Sudarshan', // Pre-filled name
+        email: 'sudarshan@example.com', // Pre-filled email
+        contact: '9999999999', // Pre-filled contact number
+      },
+      notes: {
+        address: 'Razorpay Corporate Office',
+      },
+      theme: {
+        color: '#000000', 
+        background_color: '#ffffff', 
+      },
+      modal: {
+        backdropclose: false, 
+        escape: false,
+      }
+    };
+
+    const razorpay = new window.Razorpay(options);
+    razorpay.open();
+  };
+
   const handleButtonClick = (buttonType) => {
     setClickedButton(buttonType);
 
@@ -18,7 +52,7 @@ const ButtonGroup = ({ sizes = [], sizeChart = [], onBuyNow, onAddToCart }) => {
     }, 300); // Duration of the click animation
 
     if (buttonType === 'buyNow') {
-      onBuyNow();
+      handleRazorpayPayment(); // Open Razorpay checkout
     } else if (buttonType === 'addToCart') {
       if (!activeSize) {
         // Show message if no size is selected
@@ -110,11 +144,9 @@ const ButtonGroup = ({ sizes = [], sizeChart = [], onBuyNow, onAddToCart }) => {
               <button
                 className={`btn btn-dark btn-custom-lg btn-d w-100 ${clickedButton === 'buyNow' ? 'btn-clicked' : ''}`}
                 onClick={() => handleButtonClick('buyNow')}
-                disabled
               >
                 BUY NOW
               </button>
-              <div className="overlay">Live Soon</div>
             </div>
           </div>
           <div className="col-12 col-md-auto d-grid">
@@ -122,11 +154,9 @@ const ButtonGroup = ({ sizes = [], sizeChart = [], onBuyNow, onAddToCart }) => {
               <button
                 className={`btn btn-light btn-custom-lg btn-od w-100 ${clickedButton === 'addToCart' ? 'btn-clicked' : ''}`}
                 onClick={() => handleButtonClick('addToCart')}
-                disabled
               >
                 ADD TO CART
               </button>
-              <div className="overlay">Live Soon</div>
             </div>
           </div>
         </div>

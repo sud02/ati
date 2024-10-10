@@ -20,7 +20,8 @@ import ExchangePolicy from './pages/ExchangePolicy';
 import Terms from './pages/Terms'; // Import ExchangePolicy
 import Account from './pages/Account';
 import Checkout from './pages/checkout';
-import ExchangeRequestForm from './components/ExchangeRequestForm';
+import ExchangeRequestForm from './pages/ExchangeRequestForm';
+import ContactUs from './pages/ContactUs'; 
 
 
 function App() {
@@ -73,7 +74,7 @@ function App() {
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
-    }, [location.pathname]); // Add location.pathname as a dependency
+    }, [location.pathname]); 
 
     const shouldShowFooter = location.pathname !== '/login' && location.pathname !== '/signup' && location.pathname !== '/exchangePolicy';
 
@@ -84,7 +85,7 @@ function App() {
                 {location.pathname === '/' ? (
                     <Header toggleSideNav={toggleSideNav} ref={headerRef} />
                 ) : (
-                    <HeaderAll toggleSideNav={toggleSideNav} ref={headerRef} /> // Use HeaderAll for non-home pages
+                    <HeaderAll toggleSideNav={toggleSideNav} ref={headerRef} /> 
                 )}
                 <SideNav isOpen={isSideNavOpen} closeSideNav={closeSideNav} />
                 <Routes>
@@ -104,6 +105,7 @@ function App() {
                     <Route path="/terms" element={<Terms />} />{/* Add new route */}
                     <Route path="/account" component={Account} />
                     <Route path="/exchange" element={<ExchangeRequestForm />} />
+                     <Route path="/contact" element={<ContactUs />} /> 
                 </Routes>
                 {shouldShowFooter && <Footer />}
             </div>

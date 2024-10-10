@@ -72,8 +72,8 @@ const ExchangePolicy = () => {
                 FOR ANY CONCERNS REGARDING RETURNS OR CANCELLATIONS, PLEASE CONTACT OUR CUSTOMER SUPPORT TEAM AT:
             </p>
             <p className="policy-text">
-                <strong>CALL:</strong> +91 7299299211<br />
-                <strong>EMAIL:</strong> ORDERSUPPORT@ATNATIC.COM
+                <strong>CALL:</strong> +91 9988349333<br />
+                <strong>EMAIL:</strong> contact@atnatic.com
             </p>
         </div>
     );
