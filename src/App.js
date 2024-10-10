@@ -9,7 +9,7 @@ import SideNav from './components/SideNav';
 import HeroSection from './components/HeroSection';
 import ProductSection from './components/ProductSection';
 import ProductPage from './components/ProductPage/ProductPage';
-import ScrollingText from './components/Footer/ScrollingText';
+// import ScrollingText from './components/Footer/ScrollingText';
 import Footer from './components/Footer/Footer';
 import LoginForm from './components/Login/LoginForm';
 import SignupForm from './components/Login/SignupForm';
@@ -93,7 +93,7 @@ function App() {
                         <>
                             <HeroSection ref={heroTextRef} />
                             <ProductSection />
-                            <ScrollingText />
+                            {/* <ScrollingText /> */}
                         </>
                     } />
                     <Route path="/product/:id" element={<ProductPage />} />
